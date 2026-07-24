@@ -1,0 +1,64 @@
+.heroHeader-container{
+    margin: 50px auto; 
+    padding: 40px;
+    
+    background-color: var(--black);
+
+    border: 2px solid var(--border);
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+
+    max-width: 1000px;
+}
+
+.heroHeader h3{
+    color: var(--extra-color1);
+    font-size: 15px;
+
+    margin-bottom: 30px;
+}
+
+.heroHeader p{
+    color: var(--white-text);
+}
+
+.headerDescription-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.headerDiscription{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 25px;
+}
+
+.headerDiscription p{
+    font-size: small;
+    text-align: start;
+}
+
+.headerDiscription .headerDesc-btn{
+    padding: 10px;
+    width: 200px;
+    background-color: var(--border);
+    border: none;
+    border-radius: 5px;
+
+    font-family: "press start 2p";
+    font-size: 12px;
+}
+
+.desc-img{
+    margin-top: 30px;
+    width: 380px;
+
+    border: 2px solid var(--border);
+}

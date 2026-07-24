@@ -68,6 +68,11 @@
         display: block;
     }
 
+    .nav-link, .login-btn{
+        color: var(--border);
+        width: 100%;
+    }
+
     .nav-links {
         position: absolute;
         top: 70px;
@@ -81,6 +86,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        text-align: center;
         gap: 25px;
 
         padding: 20px;
@@ -89,12 +95,7 @@
         max-height: 0;
         overflow: hidden;
         opacity: 0;
-        transform: translateY(-20px);
-
-        transition:
-            max-height 0.2s ease,
-            opacity 0.2s ease,
-            transform 0.2s ease;
+            
 
         border: 3px solid var(--border);
 
@@ -104,6 +105,6 @@
         /* open state */
         max-height: 400px;
         opacity: 1;
-        transform: translateY(0);
+        
     }
 }

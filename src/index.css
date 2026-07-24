@@ -14,12 +14,13 @@
 }
 
 body {
-  font-family: system-ui, -apple-system, sans-serif;
   background-color: var(--bg-color);
-  color: var(--black);
+  color: var(--white-text);
 
   font-family: "Press Start 2P", monospace;
 
   border:5px solid var(--border);
+
+  text-align: center;
 }
 
