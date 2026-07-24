@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import '../index.css';
+import './NavBar.css';
 import logo from '../assets/logo-dark-transparent.png'
 
 export default function Navbar() {
