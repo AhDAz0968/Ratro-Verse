@@ -1,6 +1,9 @@
 import './Home.css';
 import crtTV from '../assets/CRT-TV.jpg'
 import marioCover from '../assets/mario-cover.jpg'
+import smartRec from '../assets/smart.png'
+import shakeHands from '../assets/shaking-hands.png'
+import retroController from '../assets/retro-controller.png'
 
 import { useEffect, useState } from 'react';
 import { supabase } from '../lib/supabase';
@@ -90,61 +93,138 @@ async function fetchGames() {
       </div>
 
       <div className="featured-games">
-        <div className="homePage-item-title">
-          <h3>FEATURED RETRO GAMES</h3>
-        </div>
-        <div className="homePage-item-border-row">
-          <div className="featuredGames-container">
-            <div className="featuredGamesItems">
+          <div className="homePage-item-title">
+            <h3>FEATURED RETRO GAMES</h3>
+          </div>
+          <div className="homePage-item-border-row">
+            <div className="featuredGames-container">
+              <div className="featuredGamesItems">
                 <div className="feature-item">
-                <img src={marioCover} alt="super mario cover" className='marioCoverImg'/>
-                <div className="featureDesc">
-                  <p className='featuedGameTitle'>Super Mario Bros Platformer</p>
-                  <h5 className='featureGameRating'>⭐ 4.9</h5>
-                  <button className='viewFeaturedGameBtn'> (View) </button>
+                  <img src={marioCover} alt="super mario cover" className='marioCoverImg'/>
+                  <div className="featureDesc">
+                    <p className='featuedGameTitle'>Super Mario Bros Platformer</p>
+                    <h5 className='featureGameRating'>⭐ 4.9</h5>
+                    <button className='viewFeaturedGameBtn'> (View) </button>
+                  </div>
                 </div>
-              </div>
-              <div className="feature-item">
-                <img src={marioCover} alt="super mario cover" className='marioCoverImg'/>
-                <div className="featureDesc">
-                  <p className='featuedGameTitle'>Super Mario Bros Platformer</p>
-                  <h5 className='featureGameRating'>⭐ 4.9</h5>
-                  <button className='viewFeaturedGameBtn'> (View) </button>
+                <div className="feature-item">
+                  <img src={marioCover} alt="super mario cover" className='marioCoverImg'/>
+                  <div className="featureDesc">
+                    <p className='featuedGameTitle'>Contra Action</p>
+                    <h5 className='featureGameRating'>⭐ 4.8</h5>
+                    <button className='viewFeaturedGameBtn'> (View) </button>
+                  </div>
                 </div>
-              </div>
-              <div className="feature-item">
-                <img src={marioCover} alt="super mario cover" className='marioCoverImg'/>
-                <div className="featureDesc">
-                  <p className='featuedGameTitle'>Super Mario Bros Platformer</p>
-                  <h5 className='featureGameRating'>⭐ 4.9</h5>
-                  <button className='viewFeaturedGameBtn'> (View) </button>
+                <div className="feature-item">
+                  <img src={marioCover} alt="super mario cover" className='marioCoverImg'/>
+                  <div className="featureDesc">
+                    <p className='featuedGameTitle'>Metal Slug</p>
+                    <h5 className='featureGameRating'>⭐ 5.0</h5>
+                    <button className='viewFeaturedGameBtn'> (View) </button>
+                  </div>
                 </div>
-              </div>
-              <div className="feature-item">
-                <img src={marioCover} alt="super mario cover" className='marioCoverImg'/>
-                <div className="featureDesc">
-                  <p className='featuedGameTitle'>Super Mario Bros Platformer</p>
-                  <h5 className='featureGameRating'>⭐ 4.9</h5>
-                  <button className='viewFeaturedGameBtn'> (View) </button>
+                <div className="feature-item">
+                  <img src={marioCover} alt="super mario cover" className='marioCoverImg'/>
+                  <div className="featureDesc">
+                    <p className='featuedGameTitle'>Pac-Man Arcade</p>
+                    <h5 className='featureGameRating'>⭐ ⭐ 4.7</h5>
+                    <button className='viewFeaturedGameBtn'> (View) </button>
+                  </div>
                 </div>
+                
               </div>
-            </div>
 
-            <div className="showMoreFeaturedBtn">
-              <button>[Show More]</button>
-            </div>
+              <div className="showMoreFeaturedBtn">
+                <button>[Show More]</button>
+              </div>
+
+            </div> 
           </div>
-            
-
-            
-
-          </div>
-          
-        </div>
       </div>
-    
 
-    
+      <div className="game-catagories">
+          <div className="homePage-item-title">
+            <h3>GAME CATEGORIES</h3>
+          </div>
+          <div className="homePage-item-border-row category-grid">
+            <div className='catagoryItem'>
+              <h4>Arcade</h4>
+            </div>
+            <div className='catagoryItem'>
+              <h4>Platformer</h4>
+            </div>
+            <div className='catagoryItem'>
+              <h4>Fighting</h4>
+            </div>
+            <div className='catagoryItem'>
+              <h4>RPG</h4>
+            </div>
+            <div className='catagoryItem'>
+              <h4>Adventure</h4>
+            </div>
+            <div className='catagoryItem'>
+              <h4>Run & Gun</h4>
+            </div>
+          </div>
+      </div>
 
+      <div className="top-recommendations">
+          <div className="homePage-item-title">
+            <h3>TOP RECOMMENDATIONS</h3>
+          </div>
+          <div className="homePage-item-border-col">
+            <h4 className='topRecomHeader'>Based on community ratings and popularity</h4>
+
+            <div className="topRecommendGames">
+              <div className="recommendItem">
+                <h4>#1 Chrono Trigger</h4>
+                <p>RPG • SNES • 1995</p>
+                <p>A legendary role-playing game known for its story and multiple endings.</p>
+
+                <button className='readMoreBtn'>[ Read More ]</button>
+              </div>
+              <div className="recommendItem">
+                <h4>#2 Castlevania: Symphony of the Night</h4>
+                <p>Action RPG • PlayStation • 1997</p>
+                <p>Famous for exploration, combat, and gothic atmosphere</p>
+
+                <button className='readMoreBtn'>[ Read More ]</button>
+              </div>
+              <div className="recommendItem">
+                <h4>#3 Metal Slug</h4>
+                <p>Run & Gun • Arcade • 1996</p>
+                <p>One of the most iconic arcade shooters of all time.</p>
+
+                <button className='readMoreBtn'>[ Read More ]</button>
+              </div>
+            </div>
+          </div>
+      </div>
+
+      <div className="why-us">
+        <div className="why-us-title">
+          <h3>TOP RECOMMENDATIONS</h3>
+        </div>
+        <div className="us-items">
+          <div className="us-item">
+            <img src={retroController} alt="huge library logo" className='whyUsImg'/>
+            <h4>Huge Game Library</h4>
+            <p>Explore hundreds of retro titles</p>
+          </div>
+          <div className="us-item">
+            <img src={shakeHands} alt="shaking hands logo" className='whyUsImg'/>
+            <h4>Trusted Reviews</h4>
+            <p>Read community ratings and reviews</p>
+          </div>
+          <div className="us-item">
+            <img src={smartRec} alt="huge library logo" className='whyUsImg'/>
+            <h4>Smart Recommendations</h4>
+            <p>Explore hundreds of retro titles</p>
+          </div>
+        </div>
+        
+      </div>
+
+    </div>
   );
 }
