@@ -1,10 +1,20 @@
+.homePage-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 50px 20px;
+
+    gap: 70px;
+}
+
 .heroHeader-container{
-    margin: 50px auto; 
+
     padding: 40px;
     
     background-color: var(--black);
 
-    border: 2px solid var(--border);
+    border: 3px solid var(--border);
 
     display: flex;
     flex-direction: column;
@@ -12,6 +22,7 @@
     gap: 10px;
 
     max-width: 1000px;
+    width: 100%;
 }
 
 .heroHeader h3{
@@ -30,6 +41,7 @@
     justify-content: center;
     align-items: center;
 
+    max-width: 960px;
 }
 
 .headerDiscription{
@@ -38,6 +50,9 @@
     align-items: center;
 
     gap: 25px;
+
+    max-width: 600px;
+    width: 100%;
 }
 
 .headerDiscription p{
@@ -47,7 +62,8 @@
 
 .headerDiscription .headerDesc-btn{
     padding: 10px;
-    width: 200px;
+    max-width: 200px;
+    width: 100%;
     background-color: var(--border);
     border: none;
     border-radius: 5px;
@@ -58,7 +74,184 @@
 
 .desc-img{
     margin-top: 30px;
-    width: 380px;
+    max-width: 380px;
+    width: 100%;
 
     border: 2px solid var(--border);
+}
+
+.quick-stats{
+    max-width: 1000px;
+    width: 100%;
+}
+
+.homePage-item-title{
+    text-align: center;
+    color: var(--black);
+    background-color: var(--border);
+
+    padding: 15px 20px;
+}
+
+.homePage-item-border-row{
+    display: flex;
+    justify-content: center;
+
+    background-color: var(--black);
+
+    border: 3px solid var(--border);
+
+    padding: 50px 20px;
+
+    gap: 40px;
+}
+
+.quick-stats-item{
+    border: 3px solid var(--border);
+    border-radius: 5px;
+
+    padding: 15px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+.stat-title{
+    font-size: small;
+    font-weight: 500;
+    color: var(--border)
+}
+
+.stat-number{
+    color: var(--extra-color2)
+}
+
+.search-games{
+    max-width: 1000px;
+    width: 100%;
+}
+
+.homePage-item-border-col{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background-color: var(--black);
+
+    border: 3px solid var(--border);
+
+    padding: 50px 20px;
+
+    gap: 20px;
+}
+
+.homePage-item-border-col p{
+    font-size: small;
+    color: var(--border)
+     
+}
+
+.search-place{
+    width: 100%;
+    max-width: 600px;
+
+    display: flex;
+    justify-content: center;
+    
+    gap: 10px;
+}
+
+.searchBar{
+    width: 100%;
+    height: 30px;
+
+    background-color: gainsboro;
+
+    border: 2px solid var(--border);
+    border-radius: 5px;
+
+    font-family: 'Press Start 2P';
+    font-size: smaller;
+
+    padding: 0 10px;
+}
+
+.searchBtn{
+    max-width: 100px;
+    width: 100%;
+    height: 30px;
+
+    background-color: var(--border);
+    border-radius: 5px;
+
+    font-family: 'Press Start 2P';
+    font-size: 13px;  
+}
+
+.featuredGames-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 15px;
+}
+
+.featuredGamesItems{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 25px;
+}
+
+.feature-item{
+    border: 2px solid var(--border);
+    max-width: 300px;
+
+}
+
+.marioCoverImg{
+    width: 100%;
+    border-bottom: 2px solid var(--border);
+}
+
+.featureDesc{
+    
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+
+    text-align: start;
+
+    gap: 20px;
+
+    font-size: small;
+}
+
+.featuedGameTitle{
+    color: var(--extra-color1)
+}
+
+.viewFeaturedGameBtn{
+    color: var(--extra-color2);
+    font-family: 'Press Start 2P';
+
+    background: none;
+    border: none;
+
+    cursor: pointer;
+}
+
+.showMoreFeaturedBtn button{
+    color: var(--white-text);
+    font-family: 'Press Start 2P';
+
+    background: none;
+    border: none;
+
+    cursor: pointer;
 }
