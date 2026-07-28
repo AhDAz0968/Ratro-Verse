@@ -12,23 +12,29 @@ import { supabase } from '../lib/supabase';
 export default function Home() {
 
   const [games, setGames] = useState([]);
+  const [visibleGames, setVisibleGames] = useState(4);
 
-useEffect(() => {
-  fetchGames();
-}, []);
+  useEffect(() => {
+    fetchGames();
+  }, []);
 
-async function fetchGames() {
-  const { data, error } = await supabase
-    .from('games')
-    .select('*');
+  async function fetchGames() {
+    console.log("URL:", import.meta.env.VITE_SUPABASE_URL);
 
-  if (error) {
-    console.error(error);
-    return;
+    const { data, error } = await supabase
+      .from('games')
+      .select('*');
+
+    console.log("DATA:", data);
+    console.log("ERROR:", error);
+
+    if (error) {
+      console.error(error);
+      return;
+    }
+
+    setGames(data);
   }
-
-  setGames(data);
-}
 
   return (
     <div className="homePage-container">
@@ -99,45 +105,56 @@ async function fetchGames() {
           <div className="homePage-item-border-row">
             <div className="featuredGames-container">
               <div className="featuredGamesItems">
-                <div className="feature-item">
-                  <img src={marioCover} alt="super mario cover" className='marioCoverImg'/>
-                  <div className="featureDesc">
-                    <p className='featuedGameTitle'>Super Mario Bros Platformer</p>
-                    <h5 className='featureGameRating'>⭐ 4.9</h5>
-                    <button className='viewFeaturedGameBtn'> (View) </button>
+                {games.slice(0, visibleGames).map((game) => (
+                  <div className="feature-item" key={game.id}>
+                    
+                    <img 
+                      src={game.image_url}
+                      alt={game.title}
+                      className='Cover-Img' 
+                    />
+
+                    <div className="featureDesc">
+                      <p className="featuedGameTitle">
+                        {game.title}
+                      </p>
+
+                      <p>
+                        {game.genre}
+                      </p>
+
+                      <h5 className="featureGameRating">
+                        ⭐ {game.rating}
+                      </h5>
+
+                      <button className="viewFeaturedGameBtn">
+                        (View)
+                      </button>
+                    </div>
+
                   </div>
-                </div>
-                <div className="feature-item">
-                  <img src={marioCover} alt="super mario cover" className='marioCoverImg'/>
-                  <div className="featureDesc">
-                    <p className='featuedGameTitle'>Contra Action</p>
-                    <h5 className='featureGameRating'>⭐ 4.8</h5>
-                    <button className='viewFeaturedGameBtn'> (View) </button>
-                  </div>
-                </div>
-                <div className="feature-item">
-                  <img src={marioCover} alt="super mario cover" className='marioCoverImg'/>
-                  <div className="featureDesc">
-                    <p className='featuedGameTitle'>Metal Slug</p>
-                    <h5 className='featureGameRating'>⭐ 5.0</h5>
-                    <button className='viewFeaturedGameBtn'> (View) </button>
-                  </div>
-                </div>
-                <div className="feature-item">
-                  <img src={marioCover} alt="super mario cover" className='marioCoverImg'/>
-                  <div className="featureDesc">
-                    <p className='featuedGameTitle'>Pac-Man Arcade</p>
-                    <h5 className='featureGameRating'>⭐ ⭐ 4.7</h5>
-                    <button className='viewFeaturedGameBtn'> (View) </button>
-                  </div>
-                </div>
+                ))}
                 
               </div>
 
-              <div className="showMoreFeaturedBtn">
-                <button>[Show More]</button>
-              </div>
+                <div className="showMoreFeaturedBtn">
 
+                  {visibleGames < games.length ? (
+                    <button
+                      onClick={() => setVisibleGames(prev => prev + 4)}
+                    >
+                      [ Show More ]
+                    </button>
+                    ) : (
+                    <button
+                      onClick={() => setVisibleGames(4)}
+                    >
+                      [ Show Less ]
+                    </button>
+                  )}
+
+                </div>
+              
             </div> 
           </div>
       </div>
@@ -203,7 +220,7 @@ async function fetchGames() {
 
       <div className="why-us">
         <div className="why-us-title">
-          <h3>TOP RECOMMENDATIONS</h3>
+          <h3>WHY RETRO GAME HUB?</h3>
         </div>
         <div className="us-items">
           <div className="us-item">
