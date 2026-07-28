@@ -145,6 +145,7 @@
 .homePage-item-border-col{
     display: flex;
     flex-direction: column;
+    align-items: center;
 
     background-color: var(--black);
 
@@ -366,6 +367,9 @@
     justify-content: center;
     align-items: center;
 
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
     gap: 50px;
 }
 
@@ -392,10 +396,35 @@
     font-size: 13px;
 
     text-align: start;
+
+    line-height: 16px;
 }
 
+.homePage-item-border-col .communityP{
+    color: var(--extra-color1);
+}
 
+.registerBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
+    background-color: var(--border);
+    border: none;
+    border-radius: 10px;
+
+    padding: 20px;
+
+    max-width: 200px;
+    width: 100%;
+    height: 40px;
+
+    font-family: 'Press Start 2P';
+    font-size: 12px;
+    font-weight: 500;
+
+    cursor: pointer;
+}
 
 
 /*meida part*/
@@ -413,6 +442,11 @@
 
     /*Game-Catagories*/
     .category-grid{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /*Why Us*/
+    .us-items{
         grid-template-columns: repeat(2, 1fr);
     }
 }
@@ -453,6 +487,11 @@
 
     /*Game-Catagories*/
     .category-grid{
+        grid-template-columns: 1fr;
+    }
+
+    /*Why Us*/
+    .us-items{
         grid-template-columns: 1fr;
     }
 }

@@ -225,6 +225,17 @@ async function fetchGames() {
         
       </div>
 
+      <div className="join-community">
+        <div className="homePage-item-title">
+            <h3>JOIN THE COMMUNITY</h3>
+          </div>
+          <div className="homePage-item-border-col">
+            <p className='communityP'>Create an account to save favorites, rate games, and receive recommendations.</p>
+
+            <button className='registerBtn'>Register Now</button>
+          </div>
+      </div>
+
     </div>
   );
 }
