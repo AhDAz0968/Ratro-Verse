@@ -19,7 +19,8 @@ body {
 
   font-family: "Press Start 2P", monospace;
 
-  border:5px solid var(--border);
+  border-left:7px solid var(--border);
+  border-right:7px solid var(--border);
 
   text-align: center;
 }

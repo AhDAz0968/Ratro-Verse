@@ -5,6 +5,7 @@ import smartRec from '../assets/smart.png'
 import shakeHands from '../assets/shaking-hands.png'
 import retroController from '../assets/retro-controller.png'
 
+import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { supabase } from '../lib/supabase';
 
@@ -13,6 +14,10 @@ export default function Home() {
 
   const [games, setGames] = useState([]);
   const [visibleGames, setVisibleGames] = useState(4);
+
+  const [searchTerm, setSearchTerm] = useState('');
+  const navigate = useNavigate();
+
 
   useEffect(() => {
     fetchGames();
@@ -35,6 +40,13 @@ export default function Home() {
 
     setGames(data);
   }
+
+
+
+  const filteredGames = games.filter((game) =>
+    game.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    game.genre.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <div className="homePage-container">
@@ -90,10 +102,22 @@ export default function Home() {
         <div className="homePage-item-border-col">
           <p>Search by game title, genre, platform...</p>
           <div className="search-place">
-            <input type="text" className='searchBar'/>
-            <button className="searchBtn">
+
+            <input 
+              type="text" 
+              className='searchBar'
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              placeholder='Search games...'
+            />
+            
+            <button 
+              className="searchBtn"
+              onClick={() => navigate(`/games?search=${searchTerm}`)}
+            >
               Search
             </button>
+
           </div>
         </div>
       </div>

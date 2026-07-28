@@ -1,0 +1,33 @@
+.footer-container{
+    width: 100%;
+    background-color: var(--black);
+    border-top: 10px double var(--border);
+    border-bottom: 10px double var(--border);
+    padding: 30px 200px;
+}
+
+.footerItems{
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+
+    gap: 20px;
+
+    color: #2DA687;
+    font-size: small;
+    font-weight: 500;
+
+    line-height: 17px;
+}
+
+@media (max-width: 1000px){
+    .footer-container{
+        padding: 30px 100px;
+    }
+}
+
+@media (max-width: 600px){
+    .footer-container{
+        padding: 30px 50px;
+    }
+}
