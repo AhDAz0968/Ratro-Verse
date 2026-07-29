@@ -2,7 +2,7 @@ import './Footer.css'
 
 export default function Footer(){
     return(
-        <div className="footer-container">
+        <footer className="footer-container">
             <div className="footerItems">
                 <h5>RetroVerse</h5>
                 <p>Discover the best classic games from the past.</p>
@@ -10,6 +10,6 @@ export default function Footer(){
                 <p>Facebook | Instagram | Discord | TikTok</p>
                 <h5> © 2026 RetroVerse</h5>
             </div>
-        </div>
+        </footer>
     ); 
 }

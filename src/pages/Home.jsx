@@ -49,7 +49,7 @@ export default function Home() {
   );
 
   return (
-    <div className="homePage-container">
+    <main className="homePage-container">
 
       <div className="heroHeader-container">
 
@@ -277,6 +277,6 @@ export default function Home() {
           </div>
       </div>
 
-    </div>
+    </main>
   );
 }

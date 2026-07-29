@@ -1,0 +1,65 @@
+.AboutPage-container{
+    background-color: var(--main-bg);
+    padding: 50px 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 50px;
+}
+
+.aboutUs-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    border: 15px solid var(--border-02);
+    background-color: var(--bg-green);
+    color: var(--lime-green-text);
+
+    padding: 50px 20px;
+
+    max-width: 1000px;
+    width: 100%;
+
+    gap: 15px
+}
+
+.whoWeAre-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    max-width: 1000px;
+    width: 100%;
+    border: 15px solid var(--border-02);
+    background-color: var(--bg-green);
+
+    padding: 20px;
+    gap: 50px;
+}
+
+.whoWeAre-img{
+    max-width: 300px;
+    width: 100%;
+
+    border: 5px solid var(--border-02);
+}
+
+.whoWeAre{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: start;
+
+    gap: 20px;
+
+    color:var(--lime-green-text);
+}
+
+.whoWeAre p{
+    line-height: 17px;
+    font-size: medium;
+}

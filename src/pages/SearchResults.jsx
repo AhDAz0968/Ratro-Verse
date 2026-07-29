@@ -30,7 +30,7 @@ export default function SearchResults(){
     }
 
     return (
-        <div className="search-result-container">
+        <main className="search-result-container">
 
             <div className="search-games">
 
@@ -88,6 +88,6 @@ export default function SearchResults(){
 
             </div>
 
-        </div>
+        </main>
     );
 }

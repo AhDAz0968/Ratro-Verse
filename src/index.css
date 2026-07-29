@@ -1,10 +1,21 @@
 :root{
+  /*Home Page Theme*/
   --bg-color: #1B1B3A;
   --extra-color1: #FFD166;
   --border: #4EF3C9;
   --extra-color2: #FF2E88;
   --white-text: #F7F7FF;
   --black: #000000; 
+
+  /*About Page Theme*/
+  --heading-dark-green: #0F380F;
+  --bg-green: #306230;
+  --main-bg: #8BAC0F;
+  --lime-green-text: #9BBC0F;
+  --card-bg: #9BBC0F;
+  --border-02: #0F380F;
+  --shadow-02: #306230;
+  --p-02: #306230;
 }
 
 * {
@@ -18,9 +29,6 @@ body {
   color: var(--white-text);
 
   font-family: "Press Start 2P", monospace;
-
-  border-left:7px solid var(--border);
-  border-right:7px solid var(--border);
 
   text-align: center;
 }
