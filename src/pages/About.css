@@ -6,7 +6,10 @@
     flex-direction: column;
     align-items: center;
 
-    gap: 50px;
+    gap: 100px;
+
+    border-left:10px solid var(--bg-green);
+    border-right:10px solid var(--bg-green);
 }
 
 .aboutUs-container{
@@ -62,4 +65,58 @@
 .whoWeAre p{
     line-height: 17px;
     font-size: medium;
+}
+
+.ourMission-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap:50px;
+    padding: 0 20px;
+}
+
+.ourMission{
+    background-color: var(--bg-green);
+    color: var(--lime-green-text);
+    border: 10px solid var(--border-02);
+    padding: 20px;
+
+    max-width: 1500px;
+    width: 100%;
+}
+
+.ourMissionItems{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 50px;
+}
+
+.border-01{
+    border: 12px dashed var(--border-02);
+    background-color: var(--bg-green);
+    width: 100%;
+}
+.ourMissionItem{
+    border: 10px dashed var(--shadow-02);
+    color: var(--bg-green);
+    background-color: var(--card-bg);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 50px;
+
+    padding: 50px 20px;
+    max-width: 380px;
+    width: 100%;
+    height: 370px;
+}
+
+.ourMissionIcon{
+    max-width: 150px;
+    width: 100%;
 }

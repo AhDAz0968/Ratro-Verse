@@ -1,5 +1,8 @@
 import './About.css';
 import gameBoyHandheld from '../assets/gameBoyHandheld.jpg'
+import gamingHistory from '../assets/gamingHistory.png'
+import discoverGames from '../assets/discoverGames.png'
+import gamingCommunity from '../assets/gamingCommunity.png'
 
 
 function About() {
@@ -28,6 +31,38 @@ function About() {
             reviews in one place. <br />
           </p>
         </div>
+      </div>
+
+      <div className="ourMission-container">
+
+        <div className="ourMission">
+          <h3>OUR MISSION</h3>
+        </div>
+
+        <div className="ourMissionItems">
+          <div className="border-01">
+            <div className="ourMissionItem">
+              <img src={gamingHistory} alt="gaming history" className='ourMissionIcon'/>
+              <p>Preserve Gaming History</p>
+            </div>
+          </div>
+          <div className="border-01">
+            <div className="ourMissionItem">
+              <img src={discoverGames} alt="Discover Games" className='ourMissionIcon'/>
+              <p>Help Players Discover Classic Games</p>
+            </div>
+          </div>
+          <div className="border-01">
+            <div className="ourMissionItem">
+              <img src={gamingCommunity} alt="gaming history" className='ourMissionIcon'/>
+              <p>Build a Retro Community</p>
+            </div>
+          </div>
+          
+          
+
+        </div>
+        
       </div>
 
     </main>
