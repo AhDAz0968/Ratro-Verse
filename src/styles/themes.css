@@ -1,0 +1,32 @@
+.navbar.cyberRetro{
+    background-color: var(--border);
+    color: var(--bg-color); 
+}
+
+/*About Page Theme*/
+.navbar.gameBoy{
+    background-color: var(--bg-green);
+}
+.navbar.gameBoy .nav-link,
+.navbar.gameBoy .login-btn{
+    color:var(--lime-green-text);
+}
+
+.navbar.gameBoy .nav-link:hover,
+.navbar.gameBoy .login-btn:hover{
+    background-color: var(--lime-green-text);
+    color:var(--bg-green);
+}
+
+
+.footer-container.gameBoy{
+    background-color: var(--bg-green);
+    border: 10px solid var(--border-02); 
+}
+.footer-container.gameBoy .footerItems{
+    color:var(--lime-green-text);
+}
+
+
+
+/**/

@@ -44,7 +44,6 @@
     background-color: aqua;
     color: var(--extra-color2);
 
-    border-color: var(--extra-color2);
     transform: scale(1.05);
 }
 
