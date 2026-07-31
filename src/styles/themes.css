@@ -29,3 +29,11 @@
 
 
 /**/
+
+
+@media (max-width: 1250px) {
+    .navbar.gameBoy .nav-links{
+        background: var(--bg-green);
+        border: 10px solid var(--border-02);
+    }
+}

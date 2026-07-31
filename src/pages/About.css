@@ -407,7 +407,27 @@
 }
 
 @media (max-width: 600px){
+    /*Project Object*/
     .projectObjLists {
         padding-left: 1.25rem;
+    }
+
+    /*Platform featured*/
+    .platformFeatureContent{
+        font-size: small;
+    }
+}
+
+@media (max-width: 500px){
+    /*Platform featured*/
+    .platformFeatureContent{
+        font-size: 10px;
+    }   
+}
+
+@media (max-width: 380px){
+    /**/
+    .exploreBtn-02{
+        font-size: 8px;
     }
 }
