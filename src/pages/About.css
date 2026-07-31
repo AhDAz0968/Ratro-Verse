@@ -54,7 +54,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-
+    max-width: 500px;
     text-align: start;
 
     gap: 20px;
@@ -73,7 +73,7 @@
     align-items: center;
 
     gap:50px;
-    padding: 0 20px;
+    
 
     width: 100%;
 }
@@ -94,12 +94,15 @@
     align-items: center;
 
     gap: 50px;
+
+    display: grid;
+    grid-template-columns: repeat(3 , 1fr);
 }
 
 .border-01{
     border: 12px dashed var(--border-02);
     background-color: var(--bg-green);
-    width: 100%;
+    
 }
 .ourMissionItem{
     border: 10px dashed var(--shadow-02);
@@ -155,11 +158,12 @@
 }
 
 .whatWeOfferItems{
-    display: flex;
     justify-content: center;
-    align-items: center;
-
+    
     gap: 50px;
+
+    display: grid;
+    grid-template-columns: repeat(3 , 1fr);
 }
 
 .whatWeOfferItem{
@@ -283,4 +287,127 @@
 
 .DeveloperInfo p{
     color: var(--p-02);
+}
+
+.readyToExplore-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+    max-width: 1200px;
+    width: 100%;
+
+    border: 12px solid var(--heading-dark-green);
+    background-color: var(--bg-green);
+    color: var(--bg-green);
+    
+}
+
+.outer-border{
+    border: 12px dashed var(--bg-green);
+    background-color: var(--heading-dark-green);
+    max-width: 1200px;
+    width: 100%;
+
+}
+
+.mid-border{
+    border: 12px dashed var(--bg-green);
+    background-color: var(--card-bg);
+    max-width: 1200px;
+    width: 100%;
+
+    padding: 50px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.readyToExplore-container h4{
+    color: var(--heading-dark-green);
+}
+
+.exploreBtn-02{
+    border: 10px solid var(--bg-green);
+    background-color: var(--heading-dark-green);
+    color: var(--lime-green-text);
+
+    font-family: 'Press Start 2P';
+    padding: 13px 20px;
+
+    max-width: 300px;
+    width: 100%;
+
+    cursor: pointer;
+}
+
+.exploreBtn-02:hover{
+    border: 10px solid var(--bg-green);
+    background-color: var(--lime-green-text);
+    color: var(--heading-dark-green);
+
+}
+
+
+@media (max-width: 1200px){
+    /*Our Mission*/
+    .ourMissionItems{
+        grid-template-columns: repeat(2 , 1fr);
+    }
+
+    /*What We offer*/
+    .whatWeOfferItems{
+        grid-template-columns: repeat(2 , 1fr);
+    }
+}
+
+@media( max-width: 950px){
+    /* Project Object*/
+    .projectObjLists{
+        font-size: smaller;
+    }
+}
+
+@media (max-width: 900px){
+    /* Who We Are*/
+    .whoWeAre-container{
+        flex-direction: column;
+        gap: 40px;
+        text-align: center;
+    }   
+}
+
+@media (max-width: 860px){
+    .ourMissionItems{
+    grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 800px){
+    /* Project Object*/
+    .projectObjLists{
+        font-size: 10px;
+        padding-left: 1.25rem;
+    }
+
+    /*What We offer*/
+    .whatWeOfferItems{
+        grid-template-columns: 1fr;
+    }
+
+    .whatWeOfferItem h4{
+        font-size: smaller;
+    }
+    .whatWeOfferItem p{
+        font-size: smaller;
+    }
+}
+
+@media (max-width: 600px){
+    .projectObjLists {
+        padding-left: 1.25rem;
+    }
 }

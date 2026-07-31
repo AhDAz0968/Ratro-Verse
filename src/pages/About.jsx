@@ -3,6 +3,9 @@ import gameBoyHandheld from '../assets/gameBoyHandheld.jpg'
 import gamingHistory from '../assets/gamingHistory.png'
 import discoverGames from '../assets/discoverGames.png'
 import gamingCommunity from '../assets/gamingCommunity.png'
+import gameDatabase from '../assets/gameDatabase.png'
+import gameReviews from '../assets/gameReviews.png'
+import gamingCommunityReview from '../assets/gamingCommunityReview.png'
 
 import ninjaWarrior from '../assets/ninja-warrior.png'
 
@@ -88,21 +91,21 @@ function About() {
         <div className="whatWeOfferItems">
           <div className="border-01">
             <div className="whatWeOfferItem">
-              <img src={gamingHistory} alt="gaming history" className='whatWeOfferIcon'/>
+              <img src={gameDatabase} alt="gaming history" className='whatWeOfferIcon'/>
               <h4>Game Database</h4>
               <p>Browse retro games</p>
             </div>
           </div>
           <div className="border-01">
             <div className="whatWeOfferItem">
-              <img src={gamingHistory} alt="Discover Games" className='whatWeOfferIcon'/>
+              <img src={gameReviews} alt="Discover Games" className='whatWeOfferIcon'/>
               <h4>Recommendations</h4>
               <p>Discover hidden gems</p>
             </div>
           </div>
           <div className="border-01">
             <div className="whatWeOfferItem">
-              <img src={gamingHistory} alt="gaming history" className='whatWeOfferIcon'/>
+              <img src={gamingCommunityReview} alt="gaming history" className='whatWeOfferIcon'/>
               <h4>Community Reviews</h4>
               <p>Read player opinions</p>
             </div>
@@ -156,6 +159,20 @@ function About() {
             </div>
         </div>
         
+      </div>
+
+      <div className="readyToExplore-container">
+        <div className="outer-border">
+          <div className="mid-border">
+
+            <h4>READY TO EXPLORE RETRO GAMES?</h4>
+            <p>Start your journey through gaming history today.</p>
+            <button className='exploreBtn-02'>
+              Explore Games 
+            </button>
+
+          </div>
+        </div>
       </div>
 
     </main>
