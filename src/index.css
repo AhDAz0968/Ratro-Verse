@@ -16,6 +16,13 @@
   --border-02: #0F380F;
   --shadow-02: #306230;
   --p-02: #306230;
+
+  /*Service Page Theme*/
+  --darkBrown-navbar-text-borders: #3A1F12;
+  --brightOrange-button-hightlights: #F28C28;
+  --burntOrange-cards-sections: #C75B22;
+  --deepOrange-main-bg: #8F3B16;
+  --text-cream: #FFF1D6;
 }
 
 * {

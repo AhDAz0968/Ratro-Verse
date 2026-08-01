@@ -9,7 +9,7 @@ export default function Footer(){
     const themes = {
     "/": "retro",
     "/about": "gameBoy",
-    "/games": "arcade",
+    "/service": "bridgePlatform",
     "/login": "dark",
   };
 

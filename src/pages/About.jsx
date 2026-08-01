@@ -6,7 +6,6 @@ import gamingCommunity from '../assets/gamingCommunity.png'
 import gameDatabase from '../assets/gameDatabase.png'
 import gameReviews from '../assets/gameReviews.png'
 import gamingCommunityReview from '../assets/gamingCommunityReview.png'
-
 import ninjaWarrior from '../assets/ninja-warrior.png'
 
 

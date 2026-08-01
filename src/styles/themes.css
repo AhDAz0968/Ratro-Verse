@@ -28,12 +28,41 @@
 }
 
 
-/**/
+/*Service Page Theme*/
+.navbar.bridgePlatform{
+    background-color: var(--darkBrown-navbar-text-borders);
+    
+}
+.navbar.bridgePlatform .nav-link,
+.navbar.bridgePlatform .login-btn{
+    color:var(--text-cream);
+}
 
+.navbar.bridgePlatform .nav-link:hover,
+.navbar.bridgePlatform .login-btn:hover{
+    background-color: var(--brightOrange-button-hightlights);
+    color:var(--darkBrown-navbar-text-borders);
+}
+
+
+.footer-container.bridgePlatform{
+    background-color: var(--darkBrown-navbar-text-borders);
+    border: 10px solid var(--brightOrange-button-hightlights); 
+}
+.footer-container.bridgePlatform .footerItems{
+    color:var(--deepOrange-main-bg);
+}
 
 @media (max-width: 1250px) {
+    /*About page*/
     .navbar.gameBoy .nav-links{
-        background: var(--bg-green);
-        border: 10px solid var(--border-02);
+        background: var(--heading-dark-green);
+        border: 10px solid var(--shadow-02);
+    }
+
+    /*Service page*/
+    .navbar.bridgePlatform .nav-links{
+        background: var(--burntOrange-cards-sections);
+        border: 10px solid var(--darkBrown-navbar-text-borders);
     }
 }

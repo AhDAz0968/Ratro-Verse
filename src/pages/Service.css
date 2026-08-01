@@ -1,0 +1,225 @@
+.servicePage-container{
+    background-color: var(--deepOrange-main-bg);
+    padding: 50px 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 150px;
+
+    border-left:10px solid var(--darkBrown-navbar-text-borders);
+    border-right:10px solid var(--darkBrown-navbar-text-borders);
+}
+
+.userMenual-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 0 20px;
+}
+
+.userMenualItems{
+    border-top: 10px solid var(--brightOrange-button-hightlights);
+    border-left: 10px solid var(--brightOrange-button-hightlights);
+    border-right:10px solid var(--darkBrown-navbar-text-borders);
+    border-bottom:10px solid var(--darkBrown-navbar-text-borders);
+    
+    background-color: var(--burntOrange-cards-sections);
+
+    -webkit-box-shadow: 25px 25px 4px 1px rgba(58,31,18,0.6),
+    inset 15px 15px 10px 2px rgba(242,140,40,0.6);
+
+    box-shadow: 25px 25px 4px 1px rgba(58,31,18,0.6),
+    inset 15px 15px 10px 2px rgba(242,140,40,0.6);
+    /* left-right, up-down, blur, spread */
+
+    max-width: 900px;
+    width: 100%;
+
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.cartridgeImg{
+    max-width: 250px;
+    width: 100%;
+    image-rendering: pixelated;
+
+    border: 10px solid var(--darkBrown-navbar-text-borders);
+    background-color: var(--brightOrange-button-hightlights);
+    padding: 0 0 0 5px;
+}
+
+.userMenualDesc{
+    color: var(--darkBrown-navbar-text-borders);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.contentTitle-container{
+    width: 100%;
+    padding: 0 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+}
+
+.headerTitle{
+    border-top: 10px solid var(--brightOrange-button-hightlights);
+    border-left: 10px solid var(--brightOrange-button-hightlights);
+    border-right:10px solid var(--darkBrown-navbar-text-borders);
+    border-bottom:10px solid var(--darkBrown-navbar-text-borders);
+    
+    background-color: var(--burntOrange-cards-sections);
+    color: var(--text-cream);
+
+    -webkit-box-shadow: 25px 25px 4px 1px rgba(58,31,18,0.6),
+    inset 15px 15px 10px 0px rgba(242,140,40,0.6);
+
+    box-shadow: 25px 25px 4px 1px rgba(58,31,18,0.6),
+    inset 15px 15px 10px 0px rgba(242,140,40,0.6);
+    /* left-right, up-down, blur, spread, capacity */
+
+    max-width: 1000px;
+    width: 100%;
+
+    padding: 20px;
+}
+
+.playerjourneyItems{
+    background-color: var(--burntOrange-cards-sections);
+    border: 10px solid var(--darkBrown-navbar-text-borders);
+
+    max-width: 1500px;
+    width: 100%;
+
+    padding: 30px;
+
+}
+
+.playerjourneyItem{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 30px;
+
+    padding: 10px;
+}
+
+.userStep{
+
+    -webkit-box-shadow: 13px 13px 4px 1px rgba(58,31,18,0.6);
+    box-shadow: 13px 13px 4px 1px rgba(58,31,18,0.6);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--brightOrange-button-hightlights);
+    color: var(--darkBrown-navbar-text-borders);
+    max-width: 300px;
+    width: 100%;
+    min-height: 50px;
+
+    padding: 0 10px;
+    font-size: 12px;
+}
+
+.recommendationSystem-Container{
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 60px;
+}
+
+.recommendationSystemItems{
+
+    max-width: 1300px;
+    width: 100%;
+
+    padding: 30px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+}
+
+.recommendationSystemItem{
+    background-color: var(--brightOrange-button-hightlights);
+    border: 6px solid var(--darkBrown-navbar-text-borders);
+
+    padding: 20px 10px 0 10px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+
+    max-width: 500px;
+    width: 100%;
+    height: 330px;
+
+    color: var(--darkBrown-navbar-text-borders);
+
+    -webkit-box-shadow: 18px 16px 4px 1px rgba(58,31,18,0.6);
+    box-shadow: 18px 16px 4px 1px rgba(58,31,18,0.6);
+}
+
+.recomSys-img{
+    max-width: 200px;
+    width: 100%;
+}
+
+.recommendationSystemItem p{
+    font-size: smaller;
+}
+
+
+@media (max-width: 1050px){
+    .recommendationSystemItems{
+    grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 950px){
+    .playerjourneyItem{
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+
+
+@media (max-width: 740px){
+
+    /*User Menual*/
+    .userMenualItems{
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 650px){
+    .recommendationSystemItems{
+    grid-template-columns: 1fr;
+    }
+}

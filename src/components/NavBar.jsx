@@ -14,7 +14,7 @@ export default function Navbar() {
     const themes = {
     "/": "retro",
     "/about": "gameBoy",
-    "/games": "arcade",
+    "/service": "bridgePlatform",
     "/login": "dark",
   };
 
