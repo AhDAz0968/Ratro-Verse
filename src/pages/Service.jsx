@@ -4,7 +4,51 @@ import topRatedGame from '../assets/topRatedGame.png'
 import mostPopularGames from '../assets/mostPopularGames.png'
 import hiddenGems from '../assets/hiddenGems.png'
 
+import { useState, useEffect } from 'react';
+import { supabase } from '../lib/supabase';
+
 export default function Service(){
+
+    const [platforms, setPlatforms] = useState([]);
+    const [topGames, setTopGames] = useState([]);
+
+    useEffect(() => {
+        fetchPlatforms();
+        fetchTopGames();
+    }, []);
+
+    async function fetchPlatforms(){
+        const { data, error } = await supabase
+        .from('games')
+        .select('platform');
+
+        if (error){
+            console.log(error);
+            return;
+        }
+
+        const uniquePlatforms = [
+            ...new Set(data.map(game => game.platform))
+        ];
+
+        setPlatforms(uniquePlatforms);
+    }
+
+    async function fetchTopGames(){
+        const { data, error } = await supabase
+        .from('games')
+        .select('*')
+        .order('rating', {ascending: false})
+        .limit(3);
+
+        if (error){
+            console.log(error);
+            return;
+        }
+
+        setTopGames(data);     
+    }
+
     return(
         <main className='servicePage-container'>
 
@@ -57,6 +101,66 @@ export default function Service(){
                         <img src={hiddenGems} alt="Top Rated Games" className='recomSys-img'/>
                         <p>Lesser Known Great Games </p>
                     </div>
+                </div>
+            </div>
+
+            <div className='retroPlatform-container'>
+                <div className='headerTitle'>
+                    <h3>RETRO PLATFORMS</h3>
+                </div>
+
+                <div className='platformItems'>
+
+                    {platforms.map((platform) => (
+                        <div
+                            className="platformItem"
+                            key={platform}
+                        >
+                            <h4>{platform}</h4>
+                        </div>
+                    ))}
+                    
+                </div>
+            </div>
+
+            <div className='playerReviews-container'>
+                <div className='headerTitle'>
+                    <h3>PLAYER FEEDBACK SYSTEM</h3>
+                </div>
+
+                <div className='reviewsItems'>
+                    <div className='reviewItem'>
+                    <h4>USER_001</h4>
+                    <p className='reviewStars'>⭐⭐⭐⭐⭐</p>
+                    <p className='reviewDesc'>"Chrono Trigger is a masterpiece"</p>
+                    </div>
+
+                    <div className='reviewItem'>
+                    <h4>USER_002</h4>
+                    <p className='reviewStars'>⭐⭐⭐⭐</p>
+                    <p className='reviewDesc'>"Metal Slug remains incredibly fun even today."</p>
+                    </div>
+
+                    <div className='reviewItem'>
+                    <h4>USER_003</h4>
+                    <p className='reviewStars'>⭐⭐⭐⭐⭐</p>
+                    <p className='reviewDesc'>"Best place to discover old classics."</p>
+                    </div>
+                </div>
+            </div>
+
+            <div className='searchEngine-container'>
+                <div className='headerTitle'>
+                    <h3>SEARCH ENGINE</h3>
+                </div>
+
+                <div className='searchEngineItems'>
+                    <ul className='searchLists'>
+                        <li>Title</li>
+                        <li>Genre</li>
+                        <li>Platform</li>
+                        <li>Rating</li>
+                    </ul>
                 </div>
             </div>
 
