@@ -10,6 +10,7 @@ export default function Footer(){
     "/": "retro",
     "/about": "gameBoy",
     "/service": "bridgePlatform",
+    "/contact": "midNightDarkPurple",
     "/login": "dark",
   };
 

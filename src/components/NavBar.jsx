@@ -15,7 +15,7 @@ export default function Navbar() {
     "/": "retro",
     "/about": "gameBoy",
     "/service": "bridgePlatform",
-    "/login": "dark",
+    "/contact": "midNightDarkPurple",
   };
 
   const theme = themes[location.pathname] || "retro";

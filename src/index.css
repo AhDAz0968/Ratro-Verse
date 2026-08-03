@@ -23,6 +23,13 @@
   --burntOrange-cards-sections: #C75B22;
   --deepOrange-main-bg: #8F3B16;
   --text-cream: #FFF1D6;
+
+  /*Contact Page Theme*/
+  --Deep-space_main-bg: #0A0A1A;  
+  --Dark-purple-blue_Contact-card:#210F66;
+  --purple_Borders:#5D3EB3;
+  --Bright-neon_lavender_Highlights:#CB91F2 ;
+  --soft-white-text: #F5F0FF;
 }
 
 * {

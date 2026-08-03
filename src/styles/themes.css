@@ -53,6 +53,33 @@
     color:var(--deepOrange-main-bg);
 }
 
+/*Contact Page Theme*/
+.navbar.midNightDarkPurple{
+    background-color: var(--Dark-purple-blue_Contact-card);
+    
+}
+.navbar.midNightDarkPurple .nav-link,
+.navbar.midNightDarkPurple .login-btn{
+    color:var(--Bright-neon_lavender_Highlights);
+}
+
+.navbar.midNightDarkPurple .nav-link:hover,
+.navbar.midNightDarkPurple .login-btn:hover{
+    background-color: var(--Bright-neon_lavender_Highlights);
+    color:var(--Dark-purple-blue_Contact-card);
+}
+
+
+.footer-container.midNightDarkPurple{
+    background-color: var(--Dark-purple-blue_Contact-card);
+    border: 10px solid var(--purple_Borders); 
+}
+.footer-container.midNightDarkPurple .footerItems{
+    color:var(--purple_Borders);
+}
+
+
+
 @media (max-width: 1250px) {
     /*About page*/
     .navbar.gameBoy .nav-links{

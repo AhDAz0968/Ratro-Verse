@@ -1,5 +1,5 @@
 import './About.css';
-import gameBoyHandheld from '../assets/gameBoyHandheld.jpg'
+import gameBoyHandheld from '../assets/gameBoyHandheld.gif'
 import gamingHistory from '../assets/gamingHistory.png'
 import discoverGames from '../assets/discoverGames.png'
 import gamingCommunity from '../assets/gamingCommunity.png'

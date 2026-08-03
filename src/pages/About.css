@@ -40,14 +40,15 @@
     background-color: var(--bg-green);
 
     padding: 20px;
-    gap: 150px;
+    gap: 80px;
 }
 
 .whoWeAre-img{
-    max-width: 300px;
+    max-width: 320px;
     width: 100%;
 
-    border: 5px solid var(--border-02);
+    border: 8px solid var(--border-02);
+    image-rendering: pixelated;
 }
 
 .whoWeAre{
@@ -60,10 +61,11 @@
     gap: 20px;
 
     color:var(--lime-green-text);
+
 }
 
 .whoWeAre p{
-    line-height: 17px;
+    line-height: 22px;
     font-size: medium;
 }
 
