@@ -346,14 +346,22 @@
 @media(max-width: 1000px){
     /*Retro Platform*/
     .platformItems{
-    grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
 @media (max-width: 950px){
+    /*Player journey*/
     .playerjourneyItem{
         display: flex;
         flex-direction: column;
+    }
+}
+
+@media (max-width: 800px){
+    /*Retro Platform*/
+    .platformItems{
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
@@ -372,14 +380,10 @@
     .recommendationSystemItems{
     grid-template-columns: 1fr;
     }
-
-    /*Retro Platform*/
-    .platformItems{
-    grid-template-columns: repeat(2, 1fr);
-    }
+  
 }
 
-@media (max-width: 510px){
+@media (max-width: 600px){
     /*Retro Platform*/
     .platformItems{
 

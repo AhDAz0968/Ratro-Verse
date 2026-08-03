@@ -92,4 +92,10 @@
         background: var(--burntOrange-cards-sections);
         border: 10px solid var(--darkBrown-navbar-text-borders);
     }
+
+    /*Contact Page*/
+    .navbar.midNightDarkPurple .nav-links{
+        background: var(--Deep-space_main-bg);
+        border: 10px solid var(--Dark-purple-blue_Contact-card);
+    }
 }
