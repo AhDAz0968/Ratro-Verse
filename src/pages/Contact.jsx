@@ -1,7 +1,100 @@
 import './Contact.css';
 import purpleGameBoy from '../assets/purpleGameBoy.png'
 
+import { useState, useEffect, use } from 'react';
+import { supabase } from '../lib/supabase';
+
 export default function Contact(){
+    const [contactInfo, setContactInfo] = useState(null);
+    const [socialLinks, setSocialLinks] = useState([]);
+    const [faqs, setFaqs] = useState([]);
+
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [topic, setTopic] = useState('');
+    const [message, setMessage] = useState('');
+
+
+    //load data 
+    useEffect(() => {
+        fetchContactInfo();
+        fetchSocialLinks();
+        fetchFaqs();
+    }, []);
+
+    //fetch contact info
+    async function fetchContactInfo() {
+        const {data, error} = await supabase
+            .from('contact_info')
+            .select('*')
+            .single();
+
+        if(error){
+            console.error(error);
+            return;
+        }
+
+        setContactInfo(data);
+    }
+
+    //Fetch Social Links
+    async function fetchSocialLinks(){
+        const {data, error} = await supabase
+        .from('social_links')
+        .select('*');
+        
+
+        if(error){
+            console.error(error);
+            return;
+        }
+
+        setSocialLinks(data);
+    }
+
+    //Fetch FAQs
+    async function fetchFaqs() {
+        const { data, error } = await supabase
+            .from('faq')
+            .select('*');
+
+        if (error) {
+            console.error(error);
+            return;
+        }
+
+        setFaqs(data);
+    }
+
+    //Contact Form Submission
+    async function handleSubmit(e) {
+        e.preventDefault();
+
+        const { error } = await supabase
+            .from('contact_messages')
+            .insert([
+                {
+                    name, 
+                    email, 
+                    topic, 
+                    message
+                }
+            ]);
+
+            if (error) {
+                console.error(error);
+                alert('Failed to send message');
+                return;
+            }
+
+            alert('Message sent successfully! ヾ(≧▽≦*)o');
+
+            setName('');
+            setEmail('');
+            setTopic('');
+            setMessage('');
+    }
+
     return(
         <div className="contactPage-container">
 
@@ -24,25 +117,44 @@ export default function Contact(){
                     <h2>SEND MESSAGE</h2>
                 </div>
                 
-                <form className='contactForm'>
+                <form className='contactForm' onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label>NAME</label>
-                    <input type="text" placeholder='RetroFan123'/>
+                    <input 
+                        type="text" 
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        placeholder='RetroFan123'
+                    />
                 </div>
 
                 <div className="form-group">
                     <label>EMAIL</label>
-                    <input type="email" placeholder='retro@gamil.com'/>
+                    <input 
+                        type="email"
+                        value = {email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        placeholder='retro@gamil.com'
+                    />
                 </div>
 
                 <div className="form-group">
                     <label>TOPIC</label>
-                    <input type="text" placeholder='bug'/>
+                    <input 
+                        type="text" 
+                        value={topic}
+                        onChange={(e) => setTopic(e.target.value)}
+                        placeholder='Bug report'
+                    />
                 </div>
 
                 <div className="form-group">
                     <label>MESSAGE</label>
-                    <textarea rows="3" placeholder="Just kidding, there's no bug "></textarea>
+                    <textarea 
+                        rows="3" 
+                        value={message}
+                        onChange={(e) => setMessage(e.target.value)}
+                        placeholder=" Write your message... "/>
                 </div>
 
                 <button type="submit" className='contactSubmitBtn'>
@@ -62,17 +174,17 @@ export default function Contact(){
 
                         <div className="contactInfo-card">
                             <h4>📧 EMAIL</h4>
-                            <p>retrogamehub@gmail.com</p>
+                            <p>{contactInfo?.email}</p>
                         </div>
 
                         <div className="contactInfo-card">
                             <h4>📱 PHONE</h4>
-                            <p>+855 XX XXX XXX</p>
+                            <p>{contactInfo?.phone}</p>
                         </div>
 
                         <div className="contactInfo-card">
                             <h4>📍 LOCATION</h4>
-                            <p>Phnom Penh, Cambodia</p>
+                            <p>{contactInfo?.location}</p>
                         </div>
 
                     </div>
@@ -88,23 +200,20 @@ export default function Contact(){
 
                     <div className="socialLinks-grid">
 
-                    <div className="social-card">
-                        <h3>FACEBOOK</h3>
-                    </div>
-
-                    <div className="social-card">
-                        <h3>INSTAGRAM</h3>
-                    </div>
-
-                    <div className="social-card">
-                        <h3>DISCORD</h3>
-                    </div>
-
-                    <div className="social-card">
-                        <h3>GITHUB</h3>
-                    </div>
+                        {socialLinks.map((social) => (
+                            <a  
+                                key={social.id}
+                                href={social.url}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="social-card"
+                            >
+                                <h3>{social.platform}</h3>
+                            </a>
+                        ))}
 
                     </div>
+
                 </section>
             </div>
             
@@ -114,27 +223,16 @@ export default function Contact(){
                         <h2>FAQ SECTION</h2>
                     </div>
                     
-
-                    <div className="faq-item">
-                    <h3>Q: How can I submit a game recommendation?</h3>
-                    <p>
-                        A: Create an account and use the recommendation feature.
-                    </p>
-                    </div>
-
-                    <div className="faq-item">
-                    <h3>Q: Can I review games?</h3>
-                    <p>
-                        A: Yes. Registered users can submit reviews.
-                    </p>
-                    </div>
-
-                    <div className="faq-item">
-                    <h3>Q: Can I save favorite games?</h3>
-                    <p>
-                        A: Yes. Favorites are available after login.
-                    </p>
-                    </div>
+                    {faqs.map((faq) => (
+                        <div
+                            className="faq-item"
+                            key={faq.id}
+                        >
+                            <h3>Q: {faq.question}</h3>
+                            <p>A: {faq.answer}</p>
+                        </div>
+                    ))}
+                    
                 </section>
             </div>
     
