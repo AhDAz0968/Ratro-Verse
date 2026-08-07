@@ -1,0 +1,195 @@
+.loginPage-container{
+    background-color: var(--Main-bg_MidNight-DarkBlue_login-register);
+    padding: 50px 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 100px;
+
+    border-left:10px solid var(--text_p_login-register);
+    border-right:10px solid var(--text_p_login-register);
+}
+
+.auth-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+
+    gap: 50px;
+    margin-bottom: 100px;
+}   
+
+.authHeader{
+    border: 10px solid var(--card-bg_text_login-register);
+    background-color: var(--text_p_login-register);
+    
+
+    padding: 30px 20px;
+    max-width: 1000px;
+    width: 100%;
+}
+
+.authHeader h1{
+    color: var(--Main-bg_MidNight-DarkBlue_login-register);
+
+    text-shadow:
+        4px 4px 0 var(--borders_login-register);
+
+}
+
+.loginPart{
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 50px;
+    background-color: var(--card-bg_text_login-register);
+    border: 10px solid var(--text_p_login-register);
+    border-radius: 3px;
+    padding: 50px 0;
+}
+
+.auth-tabs{
+   
+   background-color: var(--card-bg_text_login-register); 
+
+   
+
+   max-width: 800px;
+   width: 100%;
+
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   
+   
+   gap: 50px;
+}
+
+.auth-btn{
+    
+    background-color: var(--text_p_login-register);
+    border: 5px solid transparent;
+
+    max-width: 250px;
+    width: 100%;
+
+    font-family: 'Press Start 2P';
+
+    padding: 15px;
+    cursor: pointer;
+
+    transition: transform 0.2s ease;
+}
+.auth-btn:hover{
+    background-color: var(--Main-bg_MidNight-DarkBlue_login-register);
+    border: 5px solid var(--text_p_login-register);
+    color: var(--text_p_login-register);
+
+    transform: translateY(-3px);
+}
+
+
+.login-form{
+    padding: 30px;
+    background-color: var(--Main-bg_MidNight-DarkBlue_login-register);
+    border: 5px solid var(--text_p_login-register);
+    
+
+    max-width: 800px;
+    width: 100%;
+    min-height: 200px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    gap: 40px;
+}
+
+.login-group{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    
+    gap: 5px;
+
+    color: var(--text_p_login-register);
+    width: 100%;
+}
+
+.login-inputBtn{
+    max-width: 720px;
+    width: 100%;
+    min-height: 40px;
+    padding: 5px 20px;
+
+    background-color: var(--text_p_login-register);
+    border: 5px solid var(--borders_login-register);
+    color:var(--Main-bg_MidNight-DarkBlue_login-register);
+    font-family: 'Press Start 2P';
+
+}
+.login-inputBtn:focus{
+    outline:none;
+}
+
+.loginSubmit-btn{
+    padding: 20px 10px;
+    max-width: 150px;
+    width: 100%;
+
+    font-family: 'Press Start 2P';
+    background-color: var(--borders_login-register);
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    
+}
+.loginSubmit-btn:hover{
+
+    background-color: var(--text_p_login-register);
+    color: var(--borders_login-register);
+
+}
+
+.forgetPassword{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+
+    width: 100%;
+}
+
+.forgetPassword:hover{
+    color:var(--borders_login-register);
+    cursor: pointer;
+}
+
+
+
+@media (max-width: 560px){
+    /*Auth Header*/
+    .authHeader{
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 470px){
+    /*Auth Header*/
+    .authHeader{
+        font-size: 8px;
+    }
+
+    /*auth-btn*/
+    .auth-tabs{
+        display: flex;
+        flex-direction: column;
+    }
+}

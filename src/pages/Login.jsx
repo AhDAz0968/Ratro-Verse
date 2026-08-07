@@ -1,51 +1,49 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../index.css';
+import './Login.css';
 
 export default function Login() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const navigate = useNavigate();
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert(`Logged in as: ${email}`);
-    // Redirect to home page after successful login
-    navigate('/');
-  };
+  
 
   return (
-    <div className="login-container">
-      <div className="login-card">
-        <h2>Sign In</h2>
-        <form onSubmit={handleSubmit}>
-          <div className="form-group">
-            <label htmlFor="email">Email Address</label>
-            <input
-              id="email"
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="player1@retro.com"
-              required
-            />
-          </div>
+     <div className="loginPage-container">
 
-          <div className="form-group">
-            <label htmlFor="password">Password</label>
-            <input
-              id="password"
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="••••••••"
-              required
-            />
-          </div>
+      <section className="auth-container">
+        
+        <div className="authHeader">
+          <h1>PLAYER AUTHENTICATION</h1>
+        </div>
+        
+        <div className="loginPart">
 
-          <button type="submit" className="submit-btn">Login</button>
-        </form>
-      </div>
+            <div className="auth-tabs">
+              <button className='auth-btn'>LOGIN</button>
+              <button className='auth-btn'>REGISTER</button>
+            </div>
+
+           
+            <form className="login-form">
+
+              <div className="login-group">
+                <label>EMAIL</label>
+                <input type="email" className='login-inputBtn'/>
+              </div>
+
+              <div className="login-group">
+                <label>PASSWORD</label>
+                <input type="password" className='login-inputBtn'/>
+              </div>
+
+              <button type="submit" className='loginSubmit-btn'>
+                LOGIN
+              </button>
+
+              <p className='forgetPassword'>Forgot Password?</p>
+
+            </form>
+        </div>
+      </section>
+
     </div>
   );
 }

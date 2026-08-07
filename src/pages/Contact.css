@@ -120,7 +120,7 @@
 .contactSubmitBtn{
     background-color: var(--purple_Borders);
     border: none;
-    border-radius: 5px;
+    border-radius: 2px;
     padding: 20px;
 
     max-width: 220px;
@@ -256,7 +256,14 @@
     align-items: center;
 
     color: var(--Deep-space_main-bg);
+    text-decoration: none;
 }
+.social-card:hover{
+    background-color: var(--purple_Borders);
+    color: var(--Bright-neon_lavender_Highlights);
+    border: 5px solid var(--Bright-neon_lavender_Highlights);
+}
+
 
 
 .faq-item{

@@ -78,7 +78,30 @@
     color:var(--purple_Borders);
 }
 
+/*Login-Register Page Theme*/
+.navbar.midNightDarkBlue{
+    background-color: var(--text_p_login-register);
+    
+}
+.navbar.midNightDarkBlue .nav-link,
+.navbar.midNightDarkBlue .login-btn{
+    color:var(--Main-bg_MidNight-DarkBlue_login-register);
+}
 
+.navbar.midNightDarkBlue .nav-link:hover,
+.navbar.midNightDarkBlue .login-btn:hover{
+    background-color: var(--Main-bg_MidNight-DarkBlue_login-register);
+    color:var(--text_p_login-register);
+}
+
+
+.footer-container.midNightDarkBlue{
+    background-color: var(--Main-bg_MidNight-DarkBlue_login-register);
+    border: 10px solid var(--text_p_login-register); 
+}
+.footer-container.midNightDarkBlue .footerItems{
+    color:var(--text_p_login-register);
+}
 
 @media (max-width: 1250px) {
     /*About page*/

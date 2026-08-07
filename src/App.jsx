@@ -9,7 +9,6 @@ import Service from './pages/Service';
 import Contact from './pages/Contact';
 
 import Login from './pages/Login'
-import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 
 import Footer from "./components/Footer";
@@ -26,7 +25,7 @@ export default function App() {
         <Route path="/about" element={<About />} />
         <Route path="/service" element={<Service />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/login" element={<LoginPage />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/register" element={<RegisterPage />} />
       </Routes>
 

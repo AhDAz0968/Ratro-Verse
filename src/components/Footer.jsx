@@ -11,7 +11,8 @@ export default function Footer(){
     "/about": "gameBoy",
     "/service": "bridgePlatform",
     "/contact": "midNightDarkPurple",
-    "/login": "dark",
+    "/login": "midNightDarkBlue",
+    "/register": "midNightDarkBlue",
   };
 
   const theme = themes[location.pathname] || "retro";
