@@ -4,6 +4,32 @@ import './Login.css';
 
 export default function Login() {
   
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const navigate = useNavigate();
+   
+  //login funtion
+  async function handleLogin(e) {
+    e.preventDefault();
+
+    console.log("LOGIN BUTTON CLICKED");
+
+    const { error } = await supabase.auth.signInWithPassword({
+      email, 
+      password
+    });
+
+    if(error){
+      alert(error.message);
+      return;
+    }
+
+    alert('Login successful');
+
+    navigate('/');
+  }
+
 
   return (
      <div className="loginPage-container">
@@ -17,21 +43,34 @@ export default function Login() {
         <div className="loginPart">
 
             <div className="auth-tabs">
-              <button className='auth-btn'>LOGIN</button>
-              <button className='auth-btn'>REGISTER</button>
+              
+                <button className="auth-btn" onClick={() => navigate('/login')}>LOGIN</button>
+            
+                <button className="auth-btn" onClick={() => navigate('/register')}>REGISTER</button>
+              
             </div>
 
            
-            <form className="login-form">
+            <form className="login-form" onSubmit={handleLogin}>
 
               <div className="login-group">
                 <label>EMAIL</label>
-                <input type="email" className='login-inputBtn'/>
+                <input 
+                  type="email" 
+                  className='login-inputBtn'
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
               </div>
 
               <div className="login-group">
                 <label>PASSWORD</label>
-                <input type="password" className='login-inputBtn'/>
+                <input 
+                  type="password" 
+                  className='login-inputBtn'
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
               </div>
 
               <button type="submit" className='loginSubmit-btn'>

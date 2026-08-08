@@ -1,0 +1,13 @@
+.registerPage-container{
+    background-color: var(--Main-bg_MidNight-DarkBlue_login-register);
+    padding: 50px 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 100px;
+
+    border-left:10px solid var(--text_p_login-register);
+    border-right:10px solid var(--text_p_login-register);
+}

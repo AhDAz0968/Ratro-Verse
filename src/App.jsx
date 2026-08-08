@@ -9,7 +9,7 @@ import Service from './pages/Service';
 import Contact from './pages/Contact';
 
 import Login from './pages/Login'
-import RegisterPage from "./pages/RegisterPage";
+import Register from "./pages/Register";
 
 import Footer from "./components/Footer";
 
@@ -26,7 +26,7 @@ export default function App() {
         <Route path="/service" element={<Service />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
 
       <Footer />
