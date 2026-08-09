@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '../lib/supabase'
-import './Login.css';
+import { Link } from 'react-router-dom';
+import '../styles/Login.css';
 
 export default function Login() {
   
@@ -76,7 +77,9 @@ export default function Login() {
                 LOGIN
               </button>
 
-              <p className='forgetPassword'>Forgot Password?</p>
+              <Link to="/forgot-password" className="forgetPassword" >
+                Forgot Password?
+              </Link>
 
             </form>
         </div>

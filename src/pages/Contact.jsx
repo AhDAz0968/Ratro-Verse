@@ -1,4 +1,4 @@
-import './Contact.css';
+import '../styles/Contact.css';
 import purpleGameBoy from '../assets/purpleGameBoy.png'
 
 import { useState, useEffect, use } from 'react';

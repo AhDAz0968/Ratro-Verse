@@ -1,4 +1,4 @@
-import './Service.css';
+import '../styles/Service.css';
 import gameBoyCartridge from '../assets/gameBoyCartridge.png'
 import topRatedGame from '../assets/topRatedGame.png'
 import mostPopularGames from '../assets/mostPopularGames.png'

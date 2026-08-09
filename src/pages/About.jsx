@@ -1,4 +1,4 @@
-import './About.css';
+import '../styles/About.css';
 import gameBoyHandheld from '../assets/gameBoyHandheld.gif'
 import gamingHistory from '../assets/gamingHistory.png'
 import discoverGames from '../assets/discoverGames.png'

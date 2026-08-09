@@ -96,7 +96,7 @@
 
 
 .footer-container.midNightDarkBlue{
-    background-color: var(--Main-bg_MidNight-DarkBlue_login-register);
+    background-color: var(--card-bg_text_login-register);
     border: 10px solid var(--text_p_login-register); 
 }
 .footer-container.midNightDarkBlue .footerItems{

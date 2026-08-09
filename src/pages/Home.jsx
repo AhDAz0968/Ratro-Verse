@@ -1,4 +1,4 @@
-import './Home.css';
+import '../styles/Home.css';
 import crtTV from '../assets/CRT-TV.jpg'
 import marioCover from '../assets/mario-cover.jpg'
 import smartRec from '../assets/smart.png'
