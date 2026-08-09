@@ -31,7 +31,7 @@ export default function Register() {
       return;
     }
 
-    await supabase
+    const { error: profileError } = await supabase
       .from('profiles')
       .insert([
         {
@@ -39,6 +39,8 @@ export default function Register() {
           username
         }
       ]);
+
+    console.log(profileError);
 
     alert('Account created successfully');
 
