@@ -14,8 +14,6 @@ export default function Login() {
   async function handleLogin(e) {
     e.preventDefault();
 
-    console.log("LOGIN BUTTON CLICKED");
-
     const { error } = await supabase.auth.signInWithPassword({
       email, 
       password

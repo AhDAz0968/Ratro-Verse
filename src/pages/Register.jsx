@@ -49,54 +49,58 @@ export default function Register() {
 
   return (
     <div className="registerPage-container">
-      <form onSubmit={handleRegister} className="register-form">
+        <div className="registerationPart">
+      
+        <form onSubmit={handleRegister} className="register-form">
 
-        <div className="form-group">
-          <label>USERNAME</label>
-          <input 
-            type="text" 
-            value={username} 
-            onChange={(e) => setUsername(e.target.value)}
-            className='register-inputBtn'  
-          />
-        </div>
+          <div className="register-group">
+            <label>USERNAME</label>
+            <input 
+              type="text" 
+              value={username} 
+              onChange={(e) => setUsername(e.target.value)}
+              className='register-inputBtn'  
+            />
+          </div>
 
-        <div className="register-group">
-          <label>EMAIL</label>
-          <input 
-            type="email" 
-            value={email} 
-            onChange={(e) => setEmail(e.target.value)} 
-            className='register-inputBtn'/>
-        </div>
+          <div className="register-group">
+            <label>EMAIL</label>
+            <input 
+              type="email" 
+              value={email} 
+              onChange={(e) => setEmail(e.target.value)} 
+              className='register-inputBtn'/>
+          </div>
 
-        <div className="register-group">
-          <label>PASSWORD</label>
-          <input 
-            type="password" 
-            value={password} 
-            onChange={(e) => setPassword(e.target.value)} 
-            className='register-inputBtn'/>
-        </div>
+          <div className="register-group">
+            <label>PASSWORD</label>
+            <input 
+              type="password" 
+              value={password} 
+              onChange={(e) => setPassword(e.target.value)} 
+              className='register-inputBtn'/>
+          </div>
 
-        <div className="register-group">
-          <label>CONFIRM PASSWORD</label>
-          <input 
-            type="password" 
-            value={confirmPassword} 
-            onChange={(e) => setConfirmPassword(e.target.value)} 
-            className='register-inputBtn'
-           />
-        </div>
+          <div className="register-group">
+            <label>CONFIRM PASSWORD</label>
+            <input 
+              type="password" 
+              value={confirmPassword} 
+              onChange={(e) => setConfirmPassword(e.target.value)} 
+              className='register-inputBtn'
+            />
+          </div>
 
-        <button type="submit">
-          CREATE ACCOUNT
-        </button>
-        <Link to="/login">
-          Already have an account? Try Login
-        </Link>
-      </form>
+          <button type="submit" className="registerSubmit-btn">
+            CREATE ACCOUNT
+          </button>
+          <Link to="/login" className="goBackToLogin">
+            Already have an account? Try Login
+          </Link>
+        </form>
+      </div>
     </div>
+    
     
   );
 }

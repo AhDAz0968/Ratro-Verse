@@ -10,4 +10,107 @@
 
     border-left:10px solid var(--text_p_login-register);
     border-right:10px solid var(--text_p_login-register);
+
+}
+
+.registerationPart{
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 50px;
+    background-color: var(--card-bg_text_login-register);
+    border: 10px solid var(--text_p_login-register);
+    border-radius: 3px;
+    padding: 50px 20px;
+}
+
+.register-form{
+    padding: 30px;
+    background-color: var(--Main-bg_MidNight-DarkBlue_login-register);
+    border: 5px solid var(--text_p_login-register);
+    
+
+    max-width: 800px;
+    width: 100%;
+    min-height: 200px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    gap: 40px;  
+}
+
+.register-group{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    
+    gap: 5px;
+
+    color: var(--text_p_login-register);
+    width: 100%;
+}
+
+.register-inputBtn{
+    max-width: 720px;
+    width: 100%;
+    min-height: 40px;
+    padding: 5px 20px;
+
+    background-color: var(--text_p_login-register);
+    border: 5px solid var(--borders_login-register);
+    color:var(--Main-bg_MidNight-DarkBlue_login-register);
+    font-family: 'Press Start 2P';
+}
+
+.register-inputBtn:focus{
+    outline:none;
+}
+
+.registerSubmit-btn{
+    padding: 20px 10px;
+    max-width: 250px;
+    width: 100%;
+
+    font-family: 'Press Start 2P';
+    background-color: var(--borders_login-register);
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.registerSubmit-btn:hover{
+
+    background-color: var(--text_p_login-register);
+    color: var(--borders_login-register);
+
+    transform: translateY(-3px);
+}
+
+.goBackToLogin{
+    text-decoration: none;
+
+    font-size: small;
+
+    text-align: start;
+    width: 100%;
+    color: var(--text_p_login-register);
+}
+
+.goBackToLogin:hover{
+    color: var(--borders_login-register);
+}
+
+
+
+@media (max-width: 430px){
+    .register-group label, .goBackToLogin{
+        font-size: x-small;
+    }
 }
