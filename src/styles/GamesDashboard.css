@@ -1,0 +1,164 @@
+.gamesDashboard{
+    min-height:100vh;
+    background:#050505;
+    color:white;
+    padding:2rem;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.gamesHeader{
+    margin-bottom:2rem;
+}
+
+.gamesHeader h1{
+    color:#ff1e1e;
+    border-bottom:3px solid #ff1e1e;
+    display:inline-block;
+    padding-bottom:10px;
+}
+
+/* =========================
+   CONTROLS
+========================= */
+
+.gamesControls{
+    margin-bottom:1.5rem;
+}
+
+.addGameBtn{
+    background:#ff1e1e;
+    color:white;
+    border:none;
+    padding:12px 20px;
+    cursor:pointer;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.addGameBtn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 0 15px #ff1e1e;
+}
+
+/* =========================
+   SEARCH
+========================= */
+
+.searchSection{
+    margin-bottom:2rem;
+}
+
+.searchSection input{
+    width:100%;
+    padding:14px;
+    background:#111111;
+    border:2px solid #9d0208;
+    color:white;
+    font-size:1rem;
+}
+
+.searchSection input:focus{
+    outline:none;
+    border-color:#00b4ff;
+    box-shadow:0 0 10px #00b4ff;
+}
+
+/* =========================
+   TABLE
+========================= */
+
+.gamesTableContainer{
+    overflow-x:auto;
+}
+
+.gamesTable{
+    width:100%;
+    border-collapse:collapse;
+    background:#111111;
+}
+
+.gamesTable th{
+    background:#0d0d0d;
+    color:#ff1e1e;
+    border:2px solid #9d0208;
+    padding:15px;
+    text-align:left;
+}
+
+.gamesTable td{
+    border:2px solid #222;
+    padding:15px;
+}
+
+.gamesTable tr:hover{
+    background:#161616;
+}
+
+/* =========================
+   IMAGE
+========================= */
+
+.gameImage{
+    width:70px;
+    height:70px;
+    border:2px solid #9d0208;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:0.8rem;
+}
+
+/* =========================
+   ACTION BUTTONS
+========================= */
+
+.editBtn{
+    background:#00b4ff;
+    color:white;
+    border:none;
+    padding:8px 12px;
+    margin-right:8px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.editBtn:hover{
+    box-shadow:0 0 10px #00b4ff;
+}
+
+.deleteBtn{
+    background:#ff1e1e;
+    color:white;
+    border:none;
+    padding:8px 12px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.deleteBtn:hover{
+    box-shadow:0 0 10px #ff1e1e;
+}
+
+
+
+@media(max-width:768px){
+
+    .gamesDashboard{
+        padding:1rem;
+    }
+
+    .gamesTable th,
+    .gamesTable td{
+        padding:10px;
+    }
+
+    .editBtn,
+    .deleteBtn{
+        display:block;
+        width:100%;
+        margin-bottom:5px;
+    }
+}
