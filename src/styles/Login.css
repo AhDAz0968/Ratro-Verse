@@ -168,6 +168,7 @@
     width: 100%;
 
     color: var(--text_p_login-register);
+    text-decoration: none;
 }
 
 .forgetPassword:hover{

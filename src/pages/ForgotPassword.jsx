@@ -1,4 +1,3 @@
-import '../styles/ForgotPassword.css';
 import { useState } from 'react';
 import { supabase } from '../lib/supabase';
 

@@ -77,7 +77,7 @@ export default function Login() {
                 LOGIN
               </button>
 
-              <Link to="/forgot-password" className="forgetPassword" >
+              <Link to="/login" className="forgetPassword" >
                 Forgot Password?
               </Link>
 
