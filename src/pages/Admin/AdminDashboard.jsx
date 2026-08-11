@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { supabase } from "../../lib/supabase";
 
 import GamesDashboard from "./GamesDashboard";
+import UsersDashboard from "./UsersDashboard";
 
 
 function AdminDashboard() {
@@ -41,7 +42,7 @@ function AdminDashboard() {
         //contact messages
         const { data: messages } = await supabase
             .from('contact_messages')
-            .from('*')
+            .select('*')
             
         setTotalMessages(messages?.length || 0);
 
@@ -67,6 +68,20 @@ function AdminDashboard() {
           .select("*");
 
         setTotalFavorites(favorites?.length || 0);
+
+        //protect admin dashboard
+        const { data } = await supabase
+          .from('profiles')
+          .select('role')
+          .eq('id', user.id)
+          .single();
+
+        if(data.role === 'admin'){
+          navigate('/admin');
+        }
+        else{
+          navigate('/');
+        }
     }
 
   return (
@@ -85,7 +100,13 @@ function AdminDashboard() {
           </button>
 
           <button>PLATFORMS</button>
-          <button>USERS</button>
+
+          <button 
+            onClick={() => setActivePage("users")}
+          >
+            USERS
+          </button>
+
           <button>REVIEWS</button>
           <button>MESSAGES</button>
           <button className="logoutBtn">LOGOUT</button>
@@ -135,8 +156,12 @@ function AdminDashboard() {
           </>
         )}
 
+
         {activePage === "games" && (
           <GamesDashboard />
+        )}
+        {activePage === "users" && (
+          <UsersDashboard />
         )}
         
       </main>

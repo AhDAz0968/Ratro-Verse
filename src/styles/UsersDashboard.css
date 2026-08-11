@@ -1,0 +1,136 @@
+/* =========================
+   PAGE
+========================= */
+
+.usersDashboard{
+    min-height:100vh;
+    background:#050505;
+    color:white;
+    padding:2rem;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.usersHeader{
+    margin-bottom:2rem;
+}
+
+.usersHeader h1{
+    color:#ff1e1e;
+    border-bottom:3px solid #ff1e1e;
+    display:inline-block;
+    padding-bottom:10px;
+}
+
+/* =========================
+   TABLE
+========================= */
+
+.usersTableContainer{
+    overflow-x:auto;
+}
+
+.usersTable{
+    width:100%;
+    border-collapse:collapse;
+    background:#111111;
+}
+
+.usersTable th{
+    background:#0d0d0d;
+    color:#ff1e1e;
+    border:2px solid #9d0208;
+    padding:15px;
+    text-align:left;
+}
+
+.usersTable td{
+    border:2px solid #222;
+    padding:15px;
+}
+
+.usersTable tr{
+    transition:0.3s;
+}
+
+.usersTable tr:hover{
+    background:#181818;
+}
+
+/* =========================
+   ROLE BADGE
+========================= */
+
+.roleBadge{
+    display:inline-block;
+    padding:6px 12px;
+    border:1px solid #00b4ff;
+    color:#00b4ff;
+    font-size:0.85rem;
+    font-weight:bold;
+}
+
+/* =========================
+   STATUS BADGES
+========================= */
+
+.statusBadge{
+    display:inline-block;
+    padding:6px 12px;
+    font-size:0.85rem;
+    font-weight:bold;
+}
+
+.active{
+    color:#00ff88;
+    border:1px solid #00ff88;
+}
+
+.disabled{
+    color:#ff1e1e;
+    border:1px solid #ff1e1e;
+}
+
+/* =========================
+   ACTION BUTTON
+========================= */
+
+.disableBtn{
+    background:#111111;
+    color:#ff1e1e;
+    border:2px solid #ff1e1e;
+
+    padding:8px 14px;
+    cursor:pointer;
+    font-weight:bold;
+
+    transition:0.3s;
+}
+
+.disableBtn:hover{
+    background:#ff1e1e;
+    color:white;
+    box-shadow:0 0 12px #ff1e1e;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+    .usersDashboard{
+        padding:1rem;
+    }
+
+    .usersTable th,
+    .usersTable td{
+        padding:10px;
+    }
+
+    .disableBtn{
+        width:100%;
+    }
+}

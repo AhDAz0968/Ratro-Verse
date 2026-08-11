@@ -36,7 +36,10 @@ export default function Register() {
       .insert([
         {
           id: data.user.id,
-          username
+          username,
+          email,
+          role: 'user',
+          status: 'active'
         }
       ]);
 

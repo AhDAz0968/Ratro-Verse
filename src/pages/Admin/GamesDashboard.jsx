@@ -17,10 +17,37 @@ const [year, setYear] = useState('');
 const [description, setDescription] = useState('');
 const [imageUrl, setImageUrl] = useState('');
 
+const [editingId, setEditingId] = useState(null);
+
 //load games
 useEffect(() => {
+    checkUser();
     fetchGames();
 }, []);
+
+
+async function checkUser() {
+    const {
+        data: { user },
+        error
+    } = await supabase.auth.getUser();
+
+    if (error) {
+        console.error("AUTH ERROR:", error);
+        return;
+    }
+
+    console.log("CURRENT USER:", user);
+
+    if (!user) {
+        console.log("NO USER LOGGED IN");
+        return;
+    }
+
+    console.log("USER ID:", user.id);
+    console.log("USER EMAIL:", user.email);
+}
+
 
 //fetch games
 async function fetchGames() {
@@ -41,6 +68,18 @@ async function fetchGames() {
 //add games function
 async function addGame() {
 
+    if( !title || !genre || !platform || !year ){
+        alert("Please fill all required fields");
+        return;
+    }
+
+    const {
+        data: { user }
+    } = await supabase.auth.getUser();
+
+    console.log("USER:", user);
+
+
     const { error } = await supabase
         .from('games')
         .insert([
@@ -48,9 +87,10 @@ async function addGame() {
             title,
             genre,
             platform,
-            year,
+            year: Number(year),
             description,
-            image_url: imageUrl
+            image_url: imageUrl,
+            rating: 0
         }
         ]);
 
@@ -71,6 +111,63 @@ async function addGame() {
     setShowAddForm(false);
 
     alert("Game Added!");
+}
+
+// edit game
+function editGame(game) {
+    console.log("EDIT CLICKED:", game);
+
+    setEditingId(game.id);
+
+    setTitle(game.title);
+    setGenre(game.genre);
+    setPlatform(game.platform);
+    setYear(game.year);
+    setDescription(game.description || '');
+    setImageUrl(game.image_url || '');
+
+    setShowAddForm(true);
+}
+
+//update game after editing
+async function updateGame() {
+
+    if (!title || !genre || !platform || !year) {
+        alert("Please fill all required fields");
+        return;
+    }
+
+    const { error } = await supabase
+        .from('games')
+        .update({
+            title,
+            genre,
+            platform,
+            year: Number(year),
+            description,
+            image_url: imageUrl
+        })
+        .eq('id', editingId);
+
+    if (error) {
+        console.error(error);
+        alert("Failed to update game");
+        return;
+    }
+
+    await fetchGames();
+
+    setTitle('');
+    setGenre('');
+    setPlatform('');
+    setYear('');
+    setDescription('');
+    setImageUrl('');
+
+    setEditingId(null);
+    setShowAddForm(false);
+
+    alert("Game Updated!");
 }
 
 //search filter
@@ -108,7 +205,18 @@ async function deleteGame(id){
       <div className="gamesControls">
         <button 
             className="addGameBtn"
-            onClick={() => setShowAddForm(!showAddForm)}
+            onClick={() => {
+                setShowAddForm(!showAddForm);
+                if (showAddForm) {
+                    setEditingId(null);
+                    setTitle('');
+                    setGenre('');
+                    setPlatform('');
+                    setYear('');
+                    setDescription('');
+                    setImageUrl('');
+                }
+            }}
         >
           + ADD GAME
         </button>
@@ -118,45 +226,62 @@ async function deleteGame(id){
 
         <div className="addGameForm">
 
-        <input
-            placeholder="Title"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-        />
+            <h2>{editingId ? "EDIT GAME" : "ADD NEW GAME"}</h2>
 
-        <input
-            placeholder="Genre"
-            value={genre}
-            onChange={(e) => setGenre(e.target.value)}
-        />
+            <input
+                placeholder="Title"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+            />
 
-        <input
-            placeholder="Platform"
-            value={platform}
-            onChange={(e) => setPlatform(e.target.value)}
-        />
+            <input
+                placeholder="Genre"
+                value={genre}
+                onChange={(e) => setGenre(e.target.value)}
+            />
 
-        <input
-            placeholder="Year"
-            value={year}
-            onChange={(e) => setYear(e.target.value)}
-        />
+            <input
+                placeholder="Platform"
+                value={platform}
+                onChange={(e) => setPlatform(e.target.value)}
+            />
 
-        <input
-            placeholder="Image URL"
-            value={imageUrl}
-            onChange={(e) => setImageUrl(e.target.value)}
-        />
+            <input
+                placeholder="Year"
+                value={year}
+                onChange={(e) => setYear(e.target.value)}
+            />
 
-        <textarea
-            placeholder="Description"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-        />
+            <input
+                placeholder="Image URL"
+                value={imageUrl}
+                onChange={(e) => setImageUrl(e.target.value)}
+            />
 
-        <button onClick={addGame}>
-            SAVE GAME
-        </button>
+            <textarea
+                placeholder="Description"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+            />
+
+            <button onClick={editingId ? updateGame : addGame}>
+                {editingId ? "UPDATE GAME" : "SAVE GAME"}
+            </button>
+
+            <button
+                onClick={() => {
+                    setTitle('');
+                    setGenre('');
+                    setPlatform('');
+                    setYear('');
+                    setDescription('');
+                    setImageUrl('');
+                    setEditingId(null);
+                    setShowAddForm(false);
+                }}
+            >
+                CANCEL
+            </button>
 
         </div>
 
@@ -211,6 +336,7 @@ async function deleteGame(id){
 
                     <button
                         className="editBtn"
+                        onClick={() => editGame(game)}
                     >
                         Edit
                     </button>
