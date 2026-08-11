@@ -1,6 +1,7 @@
 import "../../styles/AdminDashboard.css";
 import { useEffect, useState } from "react";
 import { supabase } from "../../lib/supabase";
+import { useNavigate } from "react-router-dom";
 
 import GamesDashboard from "./GamesDashboard";
 import UsersDashboard from "./UsersDashboard";
@@ -16,6 +17,7 @@ function AdminDashboard() {
     const [totalFavorites, setTotalFavorites] = useState(0);
 
     const [activePage, setActivePage] = useState("overview");
+    const navigate = useNavigate();
 
     //load dashboard
     useEffect(() => {
@@ -69,20 +71,18 @@ function AdminDashboard() {
 
         setTotalFavorites(favorites?.length || 0);
 
-        //protect admin dashboard
-        const { data } = await supabase
-          .from('profiles')
-          .select('role')
-          .eq('id', user.id)
-          .single();
-
-        if(data.role === 'admin'){
-          navigate('/admin');
-        }
-        else{
-          navigate('/');
-        }
     }
+
+    async function handleLogout() {
+      const { error } = await supabase.auth.signOut();
+
+      if (error) {
+          console.error("LOGOUT ERROR:", error);
+          return;
+      }
+
+      navigate('/login');
+  }
 
   return (
     <div className="adminDashboard">
@@ -93,23 +93,17 @@ function AdminDashboard() {
         </div>
 
         <nav className="sidebarMenu">
-          <button 
-            onClick={() => setActivePage("games")}
-          >
-            GAMES
-          </button>
+          <button onClick={() => setActivePage("games")}>GAMES</button>
 
           <button>PLATFORMS</button>
 
-          <button 
-            onClick={() => setActivePage("users")}
-          >
-            USERS
-          </button>
+          <button onClick={() => setActivePage("users")}>USERS</button>
 
           <button>REVIEWS</button>
+          
           <button>MESSAGES</button>
-          <button className="logoutBtn">LOGOUT</button>
+
+          <button className="logoutBtn" onClick={handleLogout}>LOGOUT</button>
         </nav>
       </aside>
 

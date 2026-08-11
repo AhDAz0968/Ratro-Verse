@@ -15,7 +15,7 @@ export default function Login() {
   async function handleLogin(e) {
     e.preventDefault();
 
-    const { error } = await supabase.auth.signInWithPassword({
+    const { data, error } = await supabase.auth.signInWithPassword({
       email, 
       password
     });
@@ -25,11 +25,41 @@ export default function Login() {
       return;
     }
 
-    alert('Login successful');
+    // get the logged-in user's profile
+    const { data: profile, error: profileError } = await supabase
+        .from('profiles')
+        .select('role, status')
+        .eq('id', data.user.id)
+        .single();
 
-    navigate('/');
+    if (profileError) {
+          console.error("PROFILE ERROR:", profileError);
+          alert("Could not load user profile");
+          return;
+      }
+
+      console.log("LOGGED IN USER:", data.user);
+      console.log("USER PROFILE:", profile);
+
+      // check account status
+      if (profile.status !== 'active') {
+          alert("Your account is disabled.");
+          await supabase.auth.signOut();
+          return;
+      }
+
+    // Check role
+      if (profile.role === 'admin') {
+          alert('Welcome Admin!');
+          navigate('/admin');
+      } else {
+          alert('Login successful');
+          navigate('/');
+      }  
+
   }
 
+  
 
   return (
      <div className="loginPage-container">
