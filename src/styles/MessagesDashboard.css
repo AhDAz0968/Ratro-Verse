@@ -1,0 +1,534 @@
+/* =========================
+   MESSAGES DASHBOARD
+========================= */
+
+.messagesDashboard{
+    min-height:100vh;
+
+    background:#050505;
+
+    color:white;
+
+    padding:2rem;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.messagesHeader{
+    margin-bottom:2rem;
+}
+
+.messagesHeader h1{
+    color:#ff1e1e;
+
+    border-bottom:3px solid #ff1e1e;
+
+    display:inline-block;
+
+    padding-bottom:10px;
+
+    letter-spacing:2px;
+
+    text-shadow:
+        0 0 10px rgba(255,30,30,0.5);
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+.messageSearch{
+    margin-bottom:2rem;
+}
+
+.messageSearch input{
+    width:100%;
+
+    box-sizing:border-box;
+
+    padding:14px;
+
+    background:#111111;
+
+    color:white;
+
+    border:2px solid #9d0208;
+
+    font-size:1rem;
+
+    border-radius:6px;
+
+    transition:0.3s;
+}
+
+.messageSearch input::placeholder{
+    color:#777;
+}
+
+.messageSearch input:hover{
+    border-color:#ff1e1e;
+}
+
+.messageSearch input:focus{
+    outline:none;
+
+    border-color:#00b4ff;
+
+    box-shadow:
+        0 0 10px rgba(0,180,255,0.5);
+}
+
+
+/* =========================
+   TABLE
+========================= */
+
+.messagesTableContainer{
+    width:100%;
+
+    overflow-x:auto;
+}
+
+.messagesTable{
+    width:100%;
+
+    border-collapse:collapse;
+
+    background:#111111;
+}
+
+
+/* =========================
+   TABLE HEADER
+========================= */
+
+.messagesTable th{
+    background:#0d0d0d;
+
+    color:#ff1e1e;
+
+    border:2px solid #9d0208;
+
+    padding:15px;
+
+    text-align:left;
+
+    letter-spacing:1px;
+
+    white-space:nowrap;
+}
+
+
+/* =========================
+   TABLE CELLS
+========================= */
+
+.messagesTable td{
+    border:2px solid #222;
+
+    padding:15px;
+
+    vertical-align:middle;
+}
+
+.messagesTable tbody tr{
+    transition:0.3s;
+}
+
+.messagesTable tbody tr:hover{
+    background:#181818;
+}
+
+
+/* =========================
+   EMAIL
+========================= */
+
+.messageEmail{
+    color:#00b4ff;
+
+    text-decoration:none;
+
+    transition:0.3s;
+}
+
+.messageEmail:hover{
+    color:#ffffff;
+
+    text-decoration:underline;
+
+    text-shadow:
+        0 0 8px #00b4ff;
+}
+
+
+/* =========================
+   VIEW BUTTON
+========================= */
+
+.viewMessageBtn{
+    background:#111111;
+
+    color:#00b4ff;
+
+    border:2px solid #00b4ff;
+
+    padding:8px 14px;
+
+    cursor:pointer;
+
+    font-weight:bold;
+
+    transition:0.3s;
+}
+
+.viewMessageBtn:hover{
+    background:#00b4ff;
+
+    color:white;
+
+    box-shadow:
+        0 0 12px #00b4ff;
+
+    transform:translateY(-2px);
+}
+
+
+/* =========================
+   MODAL OVERLAY
+========================= */
+
+.messageModalOverlay{
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    background:rgba(0,0,0,0.8);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:1rem;
+
+    box-sizing:border-box;
+
+    z-index:1000;
+}
+
+
+/* =========================
+   MODAL
+========================= */
+
+.messageModal{
+    width:100%;
+
+    max-width:650px;
+
+    max-height:90vh;
+
+    overflow-y:auto;
+
+    background:#111111;
+
+    border:3px solid #ff1e1e;
+
+    border-radius:10px;
+
+    padding:2rem;
+
+    box-sizing:border-box;
+
+    box-shadow:
+        0 0 20px rgba(255,30,30,0.5),
+        0 0 50px rgba(255,30,30,0.15);
+
+    animation:messageModalOpen 0.2s ease-out;
+}
+
+
+/* =========================
+   MODAL ANIMATION
+========================= */
+
+@keyframes messageModalOpen{
+
+    from{
+        opacity:0;
+
+        transform:
+            scale(0.9)
+            translateY(20px);
+    }
+
+    to{
+        opacity:1;
+
+        transform:
+            scale(1)
+            translateY(0);
+    }
+
+}
+
+
+/* =========================
+   MODAL HEADER
+========================= */
+
+.messageModalHeader{
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    border-bottom:2px solid #9d0208;
+
+    padding-bottom:1rem;
+
+    margin-bottom:1.5rem;
+}
+
+.messageModalHeader h2{
+    color:#ff1e1e;
+
+    margin:0;
+
+    letter-spacing:1px;
+}
+
+
+/* =========================
+   CLOSE X
+========================= */
+
+.closeMessageX{
+    background:transparent;
+
+    color:#aaa;
+
+    border:none;
+
+    font-size:2rem;
+
+    line-height:1;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+.closeMessageX:hover{
+    color:#ff1e1e;
+
+    transform:rotate(90deg);
+}
+
+
+/* =========================
+   MESSAGE DETAILS
+========================= */
+
+.messageDetails{
+    display:flex;
+
+    flex-direction:column;
+
+    gap:1.2rem;
+}
+
+.messageDetailItem span{
+    display:block;
+
+    color:#ff1e1e;
+
+    font-size:0.8rem;
+
+    font-weight:bold;
+
+    letter-spacing:1px;
+
+    margin-bottom:0.3rem;
+}
+
+.messageDetailItem p{
+    margin:0;
+
+    color:white;
+
+    font-size:1rem;
+}
+
+
+/* =========================
+   MODAL EMAIL
+========================= */
+
+.modalEmail{
+    color:#00b4ff;
+
+    text-decoration:none;
+
+    transition:0.3s;
+}
+
+.modalEmail:hover{
+    color:white;
+
+    text-decoration:underline;
+}
+
+
+/* =========================
+   FULL MESSAGE
+========================= */
+
+.fullMessage{
+    background:#0d0d0d;
+
+    border-left:3px solid #9d0208;
+
+    padding:1rem;
+
+    line-height:1.6;
+
+    color:#d0d0d0 !important;
+
+    word-break:break-word;
+}
+
+
+/* =========================
+   MODAL ACTIONS
+========================= */
+
+.messageModalActions{
+    display:flex;
+
+    gap:1rem;
+
+    margin-top:2rem;
+}
+
+.messageModalActions button{
+    flex:1;
+
+    padding:12px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+
+/* =========================
+   REPLY BUTTON
+========================= */
+
+.replyMessageBtn{
+    background:#00b4ff;
+
+    color:white;
+
+    border:2px solid #00b4ff;
+}
+
+.replyMessageBtn:hover{
+    background:#008dcc;
+
+    box-shadow:
+        0 0 12px #00b4ff;
+
+    transform:translateY(-2px);
+}
+
+
+/* =========================
+   DELETE BUTTON
+========================= */
+
+.deleteMessageBtn{
+    background:#ff1e1e;
+
+    color:white;
+
+    border:2px solid #ff1e1e;
+}
+
+.deleteMessageBtn:hover{
+    box-shadow:
+        0 0 15px #ff1e1e;
+
+    transform:translateY(-2px);
+}
+
+
+/* =========================
+   CLOSE BUTTON
+========================= */
+
+.closeMessageBtn{
+    background:transparent;
+
+    color:white;
+
+    border:2px solid #555;
+}
+
+.closeMessageBtn:hover{
+    border-color:#00b4ff;
+
+    color:#00b4ff;
+
+    box-shadow:
+        0 0 10px rgba(0,180,255,0.5);
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+    .messagesDashboard{
+        padding:1rem;
+    }
+
+    .messagesTable th,
+    .messagesTable td{
+        padding:10px;
+    }
+
+    .messageModal{
+        padding:1.5rem;
+    }
+
+    .messageModalActions{
+        flex-direction:column;
+    }
+
+}
+
+
+@media(max-width:480px){
+
+    .messagesHeader h1{
+        font-size:1.5rem;
+    }
+
+}

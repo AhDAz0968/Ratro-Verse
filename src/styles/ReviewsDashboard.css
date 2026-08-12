@@ -1,0 +1,544 @@
+/* =========================
+   REVIEWS DASHBOARD
+========================= */
+
+.reviewsDashboard{
+    min-height:100vh;
+
+    background:#050505;
+
+    color:white;
+
+    padding:2rem;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.reviewsHeader{
+    margin-bottom:2rem;
+}
+
+.reviewsHeader h1{
+    color:#ff1e1e;
+
+    border-bottom:3px solid #ff1e1e;
+
+    display:inline-block;
+
+    padding-bottom:10px;
+
+    letter-spacing:2px;
+
+    text-shadow:
+        0 0 10px rgba(255,30,30,0.5);
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+.reviewSearch{
+    margin-bottom:2rem;
+}
+
+.reviewSearch input{
+    width:100%;
+
+    box-sizing:border-box;
+
+    padding:14px;
+
+    background:#111111;
+
+    color:white;
+
+    border:2px solid #9d0208;
+
+    font-size:1rem;
+
+    border-radius:6px;
+
+    transition:0.3s;
+}
+
+.reviewSearch input::placeholder{
+    color:#777;
+}
+
+.reviewSearch input:hover{
+    border-color:#ff1e1e;
+}
+
+.reviewSearch input:focus{
+    outline:none;
+
+    border-color:#00b4ff;
+
+    box-shadow:
+        0 0 10px rgba(0,180,255,0.5);
+}
+
+
+/* =========================
+   TABLE
+========================= */
+
+.reviewsTableContainer{
+    width:100%;
+
+    overflow-x:auto;
+}
+
+.reviewsTable{
+    width:100%;
+
+    border-collapse:collapse;
+
+    background:#111111;
+}
+
+
+/* =========================
+   TABLE HEADER
+========================= */
+
+.reviewsTable th{
+    background:#0d0d0d;
+
+    color:#ff1e1e;
+
+    border:2px solid #9d0208;
+
+    padding:15px;
+
+    text-align:left;
+
+    letter-spacing:1px;
+
+    white-space:nowrap;
+}
+
+
+/* =========================
+   TABLE CELLS
+========================= */
+
+.reviewsTable td{
+    border:2px solid #222;
+
+    padding:15px;
+
+    vertical-align:middle;
+}
+
+.reviewsTable tr{
+    transition:0.3s;
+}
+
+.reviewsTable tbody tr:hover{
+    background:#181818;
+
+    border-color:#9d0208;
+}
+
+
+/* =========================
+   RATING
+========================= */
+
+.reviewRating{
+    white-space:nowrap;
+
+    font-size:0.9rem;
+}
+
+
+/* =========================
+   REVIEW COMMENT
+========================= */
+
+.reviewComment{
+    max-width:350px;
+
+    line-height:1.5;
+
+    color:#d0d0d0;
+}
+
+
+/* =========================
+   ACTIONS
+========================= */
+
+.reviewActions{
+    white-space:nowrap;
+}
+
+
+/* =========================
+   VIEW BUTTON
+========================= */
+
+.viewReviewBtn{
+    background:#111111;
+
+    color:#00b4ff;
+
+    border:2px solid #00b4ff;
+
+    padding:8px 12px;
+
+    margin-right:8px;
+
+    cursor:pointer;
+
+    font-weight:bold;
+
+    transition:0.3s;
+}
+
+.viewReviewBtn:hover{
+    background:#00b4ff;
+
+    color:white;
+
+    box-shadow:
+        0 0 10px #00b4ff;
+}
+
+
+/* =========================
+   DELETE BUTTON
+========================= */
+
+.deleteReviewBtn{
+    background:#111111;
+
+    color:#ff1e1e;
+
+    border:2px solid #ff1e1e;
+
+    padding:8px 12px;
+
+    cursor:pointer;
+
+    font-weight:bold;
+
+    transition:0.3s;
+}
+
+.deleteReviewBtn:hover{
+    background:#ff1e1e;
+
+    color:white;
+
+    box-shadow:
+        0 0 12px #ff1e1e;
+}
+
+
+/* =========================
+   MODAL OVERLAY
+========================= */
+
+.reviewModalOverlay{
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    background:rgba(0,0,0,0.8);
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    padding:1rem;
+
+    box-sizing:border-box;
+
+    z-index:1000;
+}
+
+
+/* =========================
+   MODAL
+========================= */
+
+.reviewModal{
+    width:100%;
+
+    max-width:600px;
+
+    background:#111111;
+
+    border:3px solid #ff1e1e;
+
+    border-radius:10px;
+
+    padding:2rem;
+
+    box-shadow:
+        0 0 20px rgba(255,30,30,0.5),
+        0 0 50px rgba(255,30,30,0.15);
+
+    animation:reviewModalOpen 0.2s ease-out;
+}
+
+
+/* =========================
+   MODAL ANIMATION
+========================= */
+
+@keyframes reviewModalOpen{
+
+    from{
+        opacity:0;
+
+        transform:
+            scale(0.9)
+            translateY(20px);
+    }
+
+    to{
+        opacity:1;
+
+        transform:
+            scale(1)
+            translateY(0);
+    }
+
+}
+
+
+/* =========================
+   MODAL HEADER
+========================= */
+
+.reviewModalHeader{
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    border-bottom:2px solid #9d0208;
+
+    padding-bottom:1rem;
+
+    margin-bottom:1.5rem;
+}
+
+.reviewModalHeader h2{
+    color:#ff1e1e;
+
+    margin:0;
+
+    letter-spacing:1px;
+}
+
+
+/* =========================
+   CLOSE X
+========================= */
+
+.closeModalX{
+    background:transparent;
+
+    color:#aaa;
+
+    border:none;
+
+    font-size:2rem;
+
+    line-height:1;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+.closeModalX:hover{
+    color:#ff1e1e;
+
+    transform:rotate(90deg);
+}
+
+
+/* =========================
+   REVIEW DETAILS
+========================= */
+
+.reviewDetails{
+    display:flex;
+
+    flex-direction:column;
+
+    gap:1.2rem;
+}
+
+.reviewDetailItem span{
+    display:block;
+
+    color:#ff1e1e;
+
+    font-size:0.8rem;
+
+    font-weight:bold;
+
+    letter-spacing:1px;
+
+    margin-bottom:0.3rem;
+}
+
+.reviewDetailItem p{
+    margin:0;
+
+    color:white;
+
+    font-size:1rem;
+}
+
+
+/* =========================
+   MODAL RATING
+========================= */
+
+.modalRating{
+    font-size:1.2rem !important;
+}
+
+
+/* =========================
+   MODAL COMMENT
+========================= */
+
+.modalComment{
+    background:#0d0d0d;
+
+    border-left:3px solid #9d0208;
+
+    padding:1rem;
+
+    line-height:1.6;
+
+    color:#d0d0d0 !important;
+}
+
+
+/* =========================
+   MODAL ACTIONS
+========================= */
+
+.modalActions{
+    display:flex;
+
+    gap:1rem;
+
+    margin-top:2rem;
+}
+
+.modalActions button{
+    flex:1;
+
+    padding:12px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+
+/* =========================
+   MODAL DELETE
+========================= */
+
+.modalDeleteBtn{
+    background:#ff1e1e;
+
+    color:white;
+
+    border:2px solid #ff1e1e;
+}
+
+.modalDeleteBtn:hover{
+    box-shadow:
+        0 0 15px #ff1e1e;
+
+    transform:translateY(-2px);
+}
+
+
+/* =========================
+   MODAL CLOSE
+========================= */
+
+.modalCloseBtn{
+    background:transparent;
+
+    color:white;
+
+    border:2px solid #555;
+}
+
+.modalCloseBtn:hover{
+    border-color:#00b4ff;
+
+    color:#00b4ff;
+
+    box-shadow:
+        0 0 10px rgba(0,180,255,0.5);
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+    .reviewsDashboard{
+        padding:1rem;
+    }
+
+    .reviewsTable th,
+    .reviewsTable td{
+        padding:10px;
+    }
+
+    .reviewActions button{
+        display:block;
+
+        width:100%;
+
+        margin:5px 0;
+    }
+
+    .reviewModal{
+        padding:1.5rem;
+    }
+
+}
+
+
+@media(max-width:480px){
+
+    .reviewsHeader h1{
+        font-size:1.5rem;
+    }
+
+    .modalActions{
+        flex-direction:column;
+    }
+
+}

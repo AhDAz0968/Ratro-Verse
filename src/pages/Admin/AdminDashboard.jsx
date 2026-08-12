@@ -5,6 +5,9 @@ import { useNavigate } from "react-router-dom";
 
 import GamesDashboard from "./GamesDashboard";
 import UsersDashboard from "./UsersDashboard";
+import PlatformDashboard from "./PlatformDashboard";
+import ReviewsDashboard from "./ReviewsDashboard";
+import MessagesDashboard from "./MessagesDashboard";
 
 
 function AdminDashboard() {
@@ -95,13 +98,13 @@ function AdminDashboard() {
         <nav className="sidebarMenu">
           <button onClick={() => setActivePage("games")}>GAMES</button>
 
-          <button>PLATFORMS</button>
+          <button onClick={() => setActivePage("platforms")}>PLATFORMS</button>
 
           <button onClick={() => setActivePage("users")}>USERS</button>
 
-          <button>REVIEWS</button>
+          <button onClick={() => setActivePage("reviews")}>REVIEWS</button>
           
-          <button>MESSAGES</button>
+          <button onClick={() => setActivePage("messages")}>MESSAGES</button>
 
           <button className="logoutBtn" onClick={handleLogout}>LOGOUT</button>
         </nav>
@@ -154,8 +157,17 @@ function AdminDashboard() {
         {activePage === "games" && (
           <GamesDashboard />
         )}
+        {activePage === "platforms" && (
+          <PlatformDashboard />
+        )}
         {activePage === "users" && (
           <UsersDashboard />
+        )}
+        {activePage === "reviews" && (
+          <ReviewsDashboard />
+        )}
+        {activePage === "messages" && (
+          <MessagesDashboard />
         )}
         
       </main>
