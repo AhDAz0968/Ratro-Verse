@@ -106,6 +106,8 @@ function AdminDashboard() {
           
           <button onClick={() => setActivePage("messages")}>MESSAGES</button>
 
+          <button onClick={() => navigate('/')}>HOME</button>
+
           <button className="logoutBtn" onClick={handleLogout}>LOGOUT</button>
         </nav>
       </aside>

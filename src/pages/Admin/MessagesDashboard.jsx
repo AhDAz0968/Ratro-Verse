@@ -1,53 +1,51 @@
 import "../../styles/MessagesDashboard.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { supabase } from "../../lib/supabase";
 
 function MessagesDashboard() {
 
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedMessage, setSelectedMessage] = useState(null);
 
+    const [messages, setMessages] = useState([]);
 
-    // Temporary message data
-    // Later you can replace this with Supabase data
-    const messages = [
-        {
-            id: 1,
-            name: "John",
-            email: "john@gmail.com",
-            subject: "Game Suggestion",
-            message: "You should add Chrono Trigger and EarthBound.",
-            date: "12/08/2026"
-        },
-        {
-            id: 2,
-            name: "Tom",
-            email: "tom@gmail.com",
-            subject: "Bug Report",
-            message: "I found a bug when trying to search for games.",
-            date: "11/08/2026"
-        },
-        {
-            id: 3,
-            name: "Anna",
-            email: "anna@gmail.com",
-            subject: "Feedback",
-            message: "The website looks really cool. I love the retro design!",
-            date: "10/08/2026"
+    //load data
+    useEffect(() => {
+        fetchMessages();
+    }, []);
+
+    //fetch data
+    async function fetchMessages() {
+
+        const { data, error } = await supabase
+            .from('contact_messages')
+            .select('*')
+            .order('created_at', { ascending: false });
+
+        if (error) {
+            console.error("FETCH MESSAGES ERROR:", error);
+            return;
         }
-    ];
+
+        console.log("MESSAGES:", data);
+
+        setMessages(data);
+    }
+
+
 
 
     // Search messages
     const filteredMessages = messages.filter((message) =>
-        message.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        message.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        message.subject.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        message.message.toLowerCase().includes(searchTerm.toLowerCase())
+        message.name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        message.email?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        message.topic?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        message.message?.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
 
     // Delete message
-    function deleteMessage(id) {
+    async function deleteMessage(id) {
 
         const confirmDelete = window.confirm(
             "Are you sure you want to delete this message?"
@@ -55,10 +53,20 @@ function MessagesDashboard() {
 
         if (!confirmDelete) return;
 
-        console.log("DELETE MESSAGE:", id);
+        const { error } = await supabase
+            .from('contact_messages')
+            .delete()
+            .eq('id', id);
 
-        // Later:
-        // Supabase delete function goes here
+        if (error) {
+            console.error("DELETE MESSAGE ERROR:", error);
+            alert("Failed to delete message");
+            return;
+        }
+
+        await fetchMessages();
+
+        alert("Message deleted!");
     }
 
 
@@ -66,21 +74,11 @@ function MessagesDashboard() {
 
         <div className="messagesDashboard">
 
-
-            {/* =========================
-                HEADER
-            ========================= */}
-
             <div className="messagesHeader">
 
                 <h1>MESSAGE TERMINAL</h1>
 
             </div>
-
-
-            {/* =========================
-                SEARCH
-            ========================= */}
 
             <div className="messageSearch">
 
@@ -92,11 +90,6 @@ function MessagesDashboard() {
                 />
 
             </div>
-
-
-            {/* =========================
-                MESSAGE TABLE
-            ========================= */}
 
             <div className="messagesTableContainer">
 
@@ -110,7 +103,7 @@ function MessagesDashboard() {
 
                             <th>EMAIL</th>
 
-                            <th>SUBJECT</th>
+                            <th>TOPIC</th>
 
                             <th>DATE</th>
 
@@ -143,11 +136,11 @@ function MessagesDashboard() {
                                 </td>
 
                                 <td>
-                                    {message.subject}
+                                    {message.topic}
                                 </td>
 
                                 <td>
-                                    {message.date}
+                                    {new Date(message.created_at).toLocaleDateString()}
                                 </td>
 
                                 <td>
@@ -173,19 +166,12 @@ function MessagesDashboard() {
 
             </div>
 
-
-            {/* =========================
-                MESSAGE DETAIL MODAL
-            ========================= */}
-
+            
             {selectedMessage && (
 
                 <div className="messageModalOverlay">
 
                     <div className="messageModal">
-
-
-                        {/* MODAL HEADER */}
 
                         <div className="messageModalHeader">
 
@@ -241,10 +227,10 @@ function MessagesDashboard() {
 
                             <div className="messageDetailItem">
 
-                                <span>SUBJECT</span>
+                                <span>TOPIC</span>
 
                                 <p>
-                                    {selectedMessage.subject}
+                                    {selectedMessage.topic}
                                 </p>
 
                             </div>
@@ -266,7 +252,7 @@ function MessagesDashboard() {
                                 <span>DATE</span>
 
                                 <p>
-                                    {selectedMessage.date}
+                                    {new Date(selectedMessage.created_at).toLocaleString()}
                                 </p>
 
                             </div>
@@ -276,14 +262,13 @@ function MessagesDashboard() {
 
 
                         {/* MODAL ACTIONS */}
-
                         <div className="messageModalActions">
 
                             <button
                                 className="replyMessageBtn"
                                 onClick={() =>
                                     window.location.href =
-                                    `mailto:${selectedMessage.email}?subject=Re: ${selectedMessage.subject}`
+                                    `mailto:${selectedMessage.email}?subject=Re: ${selectedMessage.topic}`
                                 }
                             >
                                 REPLY
@@ -292,11 +277,9 @@ function MessagesDashboard() {
 
                             <button
                                 className="deleteMessageBtn"
-                                onClick={() => {
+                                onClick={ async () => {
 
-                                    deleteMessage(
-                                        selectedMessage.id
-                                    );
+                                    await deleteMessage(selectedMessage.id);
 
                                     setSelectedMessage(null);
 
