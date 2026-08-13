@@ -90,24 +90,42 @@ async function updateGameRating(gameId) {
         .eq("game_id", gameId);
 
     if (error) {
-        console.error(error);
+        console.error("FETCH RATINGS ERROR:", error);
         return;
     }
 
-    if (!ratings.length) return;
+    const reviewCount = ratings.length;
 
-    const average =
-        ratings.reduce((sum, review) => sum + review.rating, 0 ) / ratings.length;
+    //if there are no reviews
+    if (reviewCount === 0) {
+
+        const { error: updateError } = await supabase
+            .from("games")
+            .update({
+                rating: 0,
+                review_count: 0
+            })
+            .eq("id", gameId);
+
+        if (updateError) {
+            console.error("UPDATE GAME ERROR:", updateError);
+        }
+
+        return;
+    }
+
+    const average = ratings.reduce((sum, review) => sum + review.rating, 0) / reviewCount;
 
     const { error: updateError } = await supabase
         .from("games")
         .update({
-            rating: Number(average.toFixed(1))
+            rating: Number(average.toFixed(1)),
+            review_count: reviewCount
         })
         .eq("id", gameId);
 
     if (updateError) {
-        console.error(updateError);
+        console.error("UPDATE GAME ERROR:", updateError);
     }
 }
 
@@ -123,6 +141,23 @@ async function submitReview() {
 
     if (!user) {
         alert("Please login first.");
+        return;
+    }
+
+    const { data: existingReview, error: existingReviewError } = await supabase
+        .from("reviews")
+        .select("id")
+        .eq("user_id", user.id)
+        .eq("game_id", selectedGame.id)
+        .maybeSingle();
+
+    if (existingReviewError) {
+        console.error("CHECK REVIEW ERROR:", existingReviewError);
+        return;
+    }
+
+    if (existingReview) {
+        alert("You already reviewed this game! You can edit your review later. (￣▽￣)ゞ");
         return;
     }
 
@@ -288,9 +323,7 @@ return (
                 type="text"
                 placeholder=" Search games..."
                 value={searchTerm}
-                onChange={(e) =>
-                    setSearchTerm(e.target.value)
-                }
+                onChange={(e) => setSearchTerm(e.target.value)}
             />
 
             <select
@@ -369,6 +402,11 @@ return (
                     <p>{game.genre}</p>
 
                     <p>⭐ {game.rating}</p>
+
+                    <p>
+                        💬 {game.review_count || 0}{" "}
+                        {(game.review_count || 0) === 1 ? "Review" : "Reviews"}
+                    </p>
 
                     <button
                         onClick={() =>
@@ -559,7 +597,7 @@ return (
                                             </p>
 
                                             <p className="reviewText">
-                                                "{review.review_text}"
+                                                {review.review_text}
                                             </p>
 
                                         </div>
