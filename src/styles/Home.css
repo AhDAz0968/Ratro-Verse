@@ -17,7 +17,7 @@
     
     background-color: var(--black);
 
-    border: 3px solid var(--border);
+    border: 10px solid var(--border);
 
     display: flex;
     flex-direction: column;
@@ -67,24 +67,32 @@
     text-align: start;
 }
 
-.headerDiscription .headerDesc-btn{
-    padding: 10px;
-    max-width: 200px;
+.headerDesc-btn{
+    padding: 15px;
+    max-width: 230px;
     width: 100%;
+    min-height: 50px;
     background-color: var(--border);
-    border: none;
+
+    border: 5px solid transparent;
     border-radius: 5px;
 
     font-family: "press start 2p";
     font-size: 12px;
 }
+.headerDesc-btn:hover{
+    border-color: var(--border);
+    background-color: var(--bg-color);
+    color: var(--border);
+}
+
 
 .desc-img{
     margin-top: 30px;
     max-width: 380px;
     width: 100%;
 
-    border: 2px solid var(--border);
+    border: 5px solid var(--border);
 }
 
 .quick-stats{
@@ -111,7 +119,9 @@
 
     background-color: var(--black);
 
-    border: 3px solid var(--border);
+    border-right: 10px solid var(--border);
+    border-left: 10px solid var(--border);
+    border-bottom: 10px solid var(--border);
 
     padding: 50px 20px;
 
@@ -152,7 +162,9 @@
 
     background-color: var(--black);
 
-    border: 3px solid var(--border);
+    border-right: 10px solid var(--border);
+    border-left: 10px solid var(--border);
+    border-bottom: 10px solid var(--border);
 
     padding: 50px 20px;
 
@@ -417,7 +429,7 @@
     align-items: center;
 
     background-color: var(--border);
-    border: none;
+    border: 5px solid transparent;
     border-radius: 10px;
 
     padding: 20px;
@@ -432,7 +444,11 @@
 
     cursor: pointer;
 }
-
+.registerBtn:hover{
+    border-color: var(--border);
+    background-color: var(--bg-color);
+    color: var(--border);
+}
 
 /*meida part*/
 @media (max-width: 1200px){
