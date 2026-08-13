@@ -18,6 +18,13 @@
   --shadow-02: #306230;
   --p-02: #306230;
 
+  /*Games Page Theme*/
+  --grayGameBoy_main-bg: #e0e9c4;
+  --grayGameBoy_Cards_Inputs: #9aa57c;
+  --grayGameBoy_Borders_Text:#4b564d;
+  --grayGameBoy_Headers_Buttons: #252525;
+
+
   /*Service Page Theme*/
   --darkBrown-navbar-text-borders: #3A1F12;
   --brightOrange-button-hightlights: #F28C28;

@@ -5,6 +5,7 @@ import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import SearchResults from './pages/SearchResults';
 import About from './pages/About'
+import Games from './pages/Games'
 import Service from './pages/Service';
 import Contact from './pages/Contact';
 import Login from './pages/Login'
@@ -23,8 +24,9 @@ export default function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/games" element={<SearchResults />} />
+        <Route path="/games-searchresults" element={<SearchResults />} />
         <Route path="/about" element={<About />} />
+        <Route path="/games" element={<Games />} />
         <Route path="/service" element={<Service />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />

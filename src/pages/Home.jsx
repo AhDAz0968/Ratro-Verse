@@ -62,8 +62,8 @@ export default function Home() {
           <div className="headerDiscription">
             <p>Browse legendary titles, explore hidden gems, and find your next retro adventure.</p>
 
-            <button className='headerDesc-btn'>Explore Games</button>
-            <button className='headerDesc-btn'>Join Community</button>
+            <button className='headerDesc-btn' onClick={() => navigate('/games')}>Explore Games</button>
+            <button className='headerDesc-btn' onClick={() => navigate('/register')}>Join Community</button>
           </div>
 
           <img src={crtTV} alt="CRT TV" className='desc-img'/>
@@ -113,7 +113,7 @@ export default function Home() {
             
             <button 
               className="searchBtn"
-              onClick={() => navigate(`/games?search=${searchTerm}`)}
+              onClick={() => navigate(`/games-searchresults?search=${searchTerm}`)}
             >
               Search
             </button>
@@ -273,7 +273,7 @@ export default function Home() {
           <div className="homePage-item-border-col">
             <p className='communityP'>Create an account to save favorites, rate games, and receive recommendations.</p>
 
-            <button className='registerBtn'>Register Now</button>
+            <button className='registerBtn' onClick={() => navigate('/register')}>Register Now</button>
           </div>
       </div>
 

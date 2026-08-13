@@ -28,6 +28,31 @@
 }
 
 
+/*Games Page Theme*/
+.navbar.GrayGameBoy{
+    background-color: var(--grayGameBoy_Headers_Buttons);
+}
+.navbar.GrayGameBoy .nav-link,
+.navbar.GrayGameBoy .login-btn{
+    color:var(--grayGameBoy_Cards_Inputs);
+}
+
+.navbar.GrayGameBoy .nav-link:hover,
+.navbar.GrayGameBoy .login-btn:hover{
+    background-color: var(--grayGameBoy_Cards_Inputs);
+    color:var(--grayGameBoy_Headers_Buttons);
+}
+
+
+.footer-container.GrayGameBoy{
+    background-color: var(--grayGameBoy_Borders_Text);
+    border: 10px solid var(--grayGameBoy_Headers_Buttons); 
+}
+.footer-container.GrayGameBoy .footerItems{
+    color:var(--grayGameBoy_Cards_Inputs);
+}
+
+
 /*Service Page Theme*/
 .navbar.bridgePlatform{
     background-color: var(--darkBrown-navbar-text-borders);
@@ -104,10 +129,22 @@
 }
 
 @media (max-width: 1250px) {
+    /*home page*/
+    .navbar.cyberRetro .nav-links{
+        background: black;
+        border: 10px solid var(--border);
+    }
+ 
     /*About page*/
     .navbar.gameBoy .nav-links{
         background: var(--heading-dark-green);
         border: 10px solid var(--shadow-02);
+    }
+
+    /*Games page*/
+    .navbar.GrayGameBoy .nav-links{
+        background: var(--grayGameBoy_Borders_Text);
+        border: 10px solid var(--grayGameBoy_Headers_Buttons);
     }
 
     /*Service page*/
@@ -120,5 +157,11 @@
     .navbar.midNightDarkPurple .nav-links{
         background: var(--Deep-space_main-bg);
         border: 10px solid var(--Dark-purple-blue_Contact-card);
+    }
+
+    /*Login Page*/
+    .navbar.midNightDarkBlue .nav-links{
+        background: var(--card-bg_text_login-register);
+        border: 10px solid var(--text_p_login-register);
     }
 }

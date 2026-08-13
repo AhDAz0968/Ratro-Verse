@@ -9,6 +9,7 @@ export default function Footer(){
     const themes = {
     "/": "retro",
     "/about": "gameBoy",
+    "/games": "GrayGameBoy",
     "/service": "bridgePlatform",
     "/contact": "midNightDarkPurple",
     "/login": "midNightDarkBlue",

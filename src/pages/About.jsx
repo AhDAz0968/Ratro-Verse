@@ -1,4 +1,6 @@
 import '../styles/About.css';
+import { useNavigate } from 'react-router-dom';
+
 import gameBoyHandheld from '../assets/gameBoyHandheld.gif'
 import gamingHistory from '../assets/gamingHistory.png'
 import discoverGames from '../assets/discoverGames.png'
@@ -166,7 +168,8 @@ function About() {
 
             <h4>READY TO EXPLORE RETRO GAMES?</h4>
             <p>Start your journey through gaming history today.</p>
-            <button className='exploreBtn-02'>
+
+            <button className='exploreBtn-02' onClick={() => navigate('/games')}>
               Explore Games 
             </button>
 

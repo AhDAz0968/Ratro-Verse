@@ -12,8 +12,9 @@ export default function Navbar() {
   const location = useLocation();
   
     const themes = {
-    "/": "retro",
+    "/": "cyberRetro",
     "/about": "gameBoy",
+    "/games": "GrayGameBoy",
     "/service": "bridgePlatform",
     "/contact": "midNightDarkPurple",
     "/login": "midNightDarkBlue",
@@ -38,6 +39,7 @@ export default function Navbar() {
       <div className={`nav-links ${menuOpen ? "active" : ""} `}>
         <Link to="/" className="nav-link">Home</Link>
         <Link to="/about" className="nav-link">About</Link>
+        <Link to="/games" className="nav-link">Games</Link>
         <Link to="/service" className="nav-link">Service</Link>
         <Link to="/contact" className="nav-link">Contact</Link>
         <Link to="/login" className="login-btn">Login</Link>

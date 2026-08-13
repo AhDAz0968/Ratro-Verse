@@ -1,7 +1,7 @@
 import '../styles/Contact.css';
 import purpleGameBoy from '../assets/purpleGameBoy.png'
 
-import { useState, useEffect, use } from 'react';
+import { useState, useEffect } from 'react';
 import { supabase } from '../lib/supabase';
 
 export default function Contact(){
@@ -27,7 +27,7 @@ export default function Contact(){
         const {data, error} = await supabase
             .from('contact_info')
             .select('*')
-            .single();
+            .single();   
 
         if(error){
             console.error(error);
@@ -57,6 +57,9 @@ export default function Contact(){
         const { data, error } = await supabase
             .from('faq')
             .select('*');
+
+        console.log("🔥 FAQ DATA:", data);
+        console.log("🔥 FAQ ERROR:", error);
 
         if (error) {
             console.error(error);
