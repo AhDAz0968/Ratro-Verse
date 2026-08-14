@@ -3,7 +3,7 @@
 }
 .navbar.cyberRetro .nav-link,
 .navbar.cyberRetro .login-btn{
-    color:var(--bg-color);
+    color:#1B1B3A;
 }
 
 .navbar.cyberRetro .nav-link:hover,
@@ -140,9 +140,22 @@
 @media (max-width: 1250px) {
     /*home page*/
     .navbar.cyberRetro .nav-links{
-        background: black;
+        background: var(--bg-color);
         border: 10px solid var(--border);
     }
+    .navbar.cyberRetro .nav-link,
+    .navbar.cyberRetro .login-btn{
+        color:var(--border);
+    }
+    .navbar.cyberRetro .nav-link:hover,
+    .navbar.cyberRetro .login-btn:hover{
+        background-color: var(--border);
+        color:var(--bg-color);
+    }
+
+
+
+
  
     /*About page*/
     .navbar.gameBoy .nav-links{

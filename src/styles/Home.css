@@ -73,7 +73,7 @@
     width: 100%;
     min-height: 50px;
     background-color: var(--border);
-
+    color: var(--bg-color);
     border: 5px solid transparent;
     border-radius: 5px;
 
@@ -421,7 +421,7 @@
     background-color: var(--border);
     border: 5px solid transparent;
     border-radius: 10px;
-
+    color: var(--bg-color);
     padding: 20px;
 
     max-width: 200px;
