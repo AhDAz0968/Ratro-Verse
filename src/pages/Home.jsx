@@ -151,9 +151,6 @@ export default function Home() {
                         ⭐ {game.rating}
                       </h5>
 
-                      <button className="viewFeaturedGameBtn">
-                        (View)
-                      </button>
                     </div>
 
                   </div>

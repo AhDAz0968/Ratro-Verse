@@ -20,6 +20,8 @@ const [reviewRating, setReviewRating] = useState(5);
     
 const [games, setGames] = useState([]);
 
+const [isPostingReview, setIsPostingReview] = useState(false);
+
 //load games data
 useEffect(() => {
     fetchGames();
@@ -137,63 +139,87 @@ async function submitReview() {
         return;
     }
 
-    const {data: { user }} = await supabase.auth.getUser();
+    setIsPostingReview(true);
 
-    if (!user) {
-        alert("Please login first.");
-        return;
+    try {
+
+        const { data: { user } } = await supabase.auth.getUser();
+
+        if (!user) {
+            alert("Please login first.");
+            return;
+        }
+
+        const { data: existingReview, error: existingReviewError } = await supabase
+            .from("reviews")
+            .select("id")
+            .eq("user_id", user.id)
+            .eq("game_id", selectedGame.id)
+            .maybeSingle();
+
+        if (existingReviewError) {
+            console.error(
+                "CHECK REVIEW ERROR:",
+                existingReviewError
+            );
+            return;
+        }
+
+        if (existingReview) {
+            alert(
+                "You already reviewed this game! You can edit your review later. (￣▽￣)ゞ"
+            );
+            return;
+        }
+
+        const { error } = await supabase
+            .from("reviews")
+            .insert([
+                {
+                    user_id: user.id,
+                    game_id: selectedGame.id,
+                    rating: reviewRating,
+                    review_text: reviewText
+                }
+            ]);
+
+        if (error) {
+            console.error(error);
+            alert("Failed to post review");
+            return;
+        }
+
+        await updateGameRating(selectedGame.id);
+
+        await fetchReviews(selectedGame.id);
+
+        await fetchGames();
+
+        const { data: updatedGame } = await supabase
+            .from("games")
+            .select("*")
+            .eq("id", selectedGame.id)
+            .single();
+
+        setSelectedGame(updatedGame);
+
+        setReviewText("");
+        setReviewRating(5);
+
+        alert("Review posted! (❁´◡`❁)");
+
+    } catch (error) {
+
+        console.error(
+            "SUBMIT REVIEW ERROR:",
+            error
+        );
+
+    } finally {
+
+        setIsPostingReview(false);
+
     }
-
-    const { data: existingReview, error: existingReviewError } = await supabase
-        .from("reviews")
-        .select("id")
-        .eq("user_id", user.id)
-        .eq("game_id", selectedGame.id)
-        .maybeSingle();
-
-    if (existingReviewError) {
-        console.error("CHECK REVIEW ERROR:", existingReviewError);
-        return;
-    }
-
-    if (existingReview) {
-        alert("You already reviewed this game! You can edit your review later. (￣▽￣)ゞ");
-        return;
-    }
-
-    const { error } = await supabase
-        .from("reviews")
-        .insert([
-            {
-                user_id: user.id,
-                game_id: selectedGame.id,
-                rating: reviewRating,
-                review_text: reviewText
-            }
-        ]);
-
-    if (error) {
-        console.error(error);
-        alert("Failed to post review");
-        return;
-    }
-
-    await updateGameRating(selectedGame.id);
-    await fetchReviews(selectedGame.id);
-    await fetchGames();
-
-    const updatedGame = await supabase
-        .from("games")
-        .select("*")
-        .eq("id", selectedGame.id)
-        .single();
-
-    setSelectedGame(updatedGame.data);
-
-    setReviewText("");
-    setReviewRating(5);
-
-    alert("Review posted! (❁´◡`❁)");
 }
 
 const platforms = [

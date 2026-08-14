@@ -12,6 +12,9 @@ import ninjaWarrior from '../assets/ninja-warrior.png'
 
 
 function About() {
+
+  const navigate = useNavigate();
+
   return (
     <main className="AboutPage-container">
       

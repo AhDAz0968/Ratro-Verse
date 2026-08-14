@@ -120,7 +120,6 @@
 /*GRID */
 
 .gamesGrid{
-
     display:grid;
     grid-template-columns: repeat(auto-fill,minmax(280px,1fr));
 
@@ -525,10 +524,12 @@
 
     cursor:pointer;
 }
-
 .postReviewBtn:hover{
-
     background:#4b564d;
+}
+.postReviewBtn:disabled{
+    opacity: 0.6;
+    cursor: not-allowed;
 }
 
 
@@ -750,6 +751,11 @@
 
 }
 
+@media (max-width: 650px){
+    .gameCard h3{
+        font-size:0.9rem;
+    }
+}
 
 @media(max-width:600px){
 
@@ -759,11 +765,6 @@
     }
 
     .gamesHero p{
-
-        font-size:0.55rem;
-    }
-
-    .gameCard h3{
 
         font-size:0.55rem;
     }
