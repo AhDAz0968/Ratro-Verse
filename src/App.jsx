@@ -12,7 +12,7 @@ import Login from './pages/Login'
 import Register from "./pages/Register";
 import ForgotPassword from './pages/ForgotPassword';
 import ResetPassword from './pages/ResetPassword';
-import AdminDashboard from "./pages/admin/AdminDashboard";
+import AdminDashboard from "./pages/Admin/AdminDashboard";
 
 import Footer from "./components/Footer";
 
