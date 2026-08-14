@@ -1,6 +1,15 @@
 .navbar.cyberRetro{
     background-color: var(--border);
-    color: var(--bg-color); 
+}
+.navbar.cyberRetro .nav-link,
+.navbar.cyberRetro .login-btn{
+    color:var(--bg-color);
+}
+
+.navbar.cyberRetro .nav-link:hover,
+.navbar.cyberRetro .login-btn:hover{
+    background-color: var(--bg-color);
+    color:var(--border);
 }
 
 /*About Page Theme*/
