@@ -8,7 +8,9 @@
     height: 70px;
     padding: 0 50px;
 
-    position: relative;
+    position: sticky;
+    z-index: 9999;
+    top: 0;
 }
 
 .logo-img{
