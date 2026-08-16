@@ -360,6 +360,29 @@
     font-size:0.55rem;
 }
 
+.deleteReview-Btn{
+    display:block;
+
+    margin:2rem auto;
+
+    background:#252525;
+    color:#e0e9c4;
+
+    border:5px solid #4b564d;
+
+    padding:18px;
+
+    font-family:'Press Start 2P', cursive;
+    font-size:0.7rem;
+
+    cursor:pointer;
+}
+.deleteReview-Btn:hover{
+    background:#e0e9c4;
+    color: #252525;
+    border:5px solid #4b564d;
+}
+
 /* SHOW MORE / SHOW LESS */
 
 .showMoreBtn,

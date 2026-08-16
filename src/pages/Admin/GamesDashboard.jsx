@@ -14,6 +14,7 @@ const [title, setTitle] = useState('');
 const [genre, setGenre] = useState('');
 const [platform, setPlatform] = useState('');
 const [year, setYear] = useState('');
+const [rating, setRating] = useState('');
 const [description, setDescription] = useState('');
 const [imageUrl, setImageUrl] = useState('');
 
@@ -68,8 +69,13 @@ async function fetchGames() {
 //add games function
 async function addGame() {
 
-    if( !title || !genre || !platform || !year ){
+    if (!title || !genre || !platform || !year || rating === '') {
         alert("Please fill all required fields");
+        return;
+    }
+
+    if (Number(rating) < 0 || Number(rating) > 5) {
+        alert("Rating must be between 0 and 5.");
         return;
     }
 
@@ -90,7 +96,7 @@ async function addGame() {
             year: Number(year),
             description,
             image_url: imageUrl,
-            rating: 0
+            rating: Number(rating)
         }
         ]);
 
@@ -107,6 +113,7 @@ async function addGame() {
     setYear('');
     setDescription('');
     setImageUrl('');
+    setRating('');
 
     setShowAddForm(false);
 
@@ -125,6 +132,7 @@ function editGame(game) {
     setYear(game.year);
     setDescription(game.description || '');
     setImageUrl(game.image_url || '');
+    setRating(game.rating ?? '');
 
     setShowAddForm(true);
 }
@@ -145,7 +153,8 @@ async function updateGame() {
             platform,
             year: Number(year),
             description,
-            image_url: imageUrl
+            image_url: imageUrl,
+            rating: Number(rating)
         })
         .eq('id', editingId);
 
@@ -215,6 +224,7 @@ async function deleteGame(id){
                     setYear('');
                     setDescription('');
                     setImageUrl('');
+                    setRating('');
                 }
             }}
         >
@@ -253,6 +263,16 @@ async function deleteGame(id){
             />
 
             <input
+                type="number"
+                placeholder="Rating (0 - 5)"
+                min="0"
+                max="5"
+                step="0.1"
+                value={rating}
+                onChange={(e) => setRating(e.target.value)}
+            />
+
+            <input
                 placeholder="Image URL"
                 value={imageUrl}
                 onChange={(e) => setImageUrl(e.target.value)}
@@ -276,6 +296,7 @@ async function deleteGame(id){
                     setYear('');
                     setDescription('');
                     setImageUrl('');
+                    setRating('');
                     setEditingId(null);
                     setShowAddForm(false);
                 }}

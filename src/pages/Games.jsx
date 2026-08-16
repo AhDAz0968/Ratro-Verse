@@ -22,10 +22,34 @@ const [games, setGames] = useState([]);
 
 const [isPostingReview, setIsPostingReview] = useState(false);
 
+const [currentUser, setCurrentUser] = useState(null);
+const [userRole, setUserRole] = useState("user");
+
 //load games data
 useEffect(() => {
-    fetchGames();
-    fetchFavorites();
+
+    async function initializePage(){
+        const { data: { user } } = await supabase.auth.getUser();
+
+        setCurrentUser(user);
+
+        if(user){
+            const {data: profile} = await supabase
+                .from("profiles")
+                .select('role')
+                .eq('id', user.id)
+                .single();
+
+            if(profile){
+                setUserRole(profile.role);
+            } 
+        }
+        
+        await fetchGames();
+        await fetchFavorites();
+    }
+
+    initializePage();
 }, []);
 
 //fetch reviews
@@ -190,9 +214,7 @@ async function submitReview() {
         }
 
         await updateGameRating(selectedGame.id);
-
         await fetchReviews(selectedGame.id);
-
         await fetchGames();
 
         const { data: updatedGame } = await supabase
@@ -221,6 +243,44 @@ async function submitReview() {
 
     }
 }
+
+//delete reviews
+async function deleteReview(reviewId) {
+    const confirmed = window.confirm("Are you sure you want to delete this review?");
+
+    if (!confirmed) return;
+
+    const { error } = await supabase
+        .from("reviews")
+        .delete()
+        .eq("id", reviewId);
+
+    if (error) {
+        console.error(
+            "DELETE REVIEW ERROR:",
+            error
+        );
+
+        alert("Failed to delete review.");
+        return;
+    }
+
+    await updateGameRating(selectedGame.id);
+    await fetchReviews(selectedGame.id);
+    await fetchGames();
+
+    const { data: updatedGame } = await supabase
+        .from("games")
+        .select("*")
+        .eq("id", selectedGame.id)
+        .single();
+
+    setSelectedGame(updatedGame);
+
+    alert("Review deleted.");
+}
+
+
 
 const platforms = [
     ...new Set(games.map(game => game.platform))
@@ -626,6 +686,25 @@ return (
                                                 {review.review_text}
                                             </p>
 
+                                            {(
+                                                currentUser?.id === review.user_id ||
+                                                userRole === "admin"
+                                            ) && (
+
+                                                <button
+                                                    className="deleteReview-Btn"
+                                                    onClick={() =>
+                                                        deleteReview(review.id)
+                                                    }
+                                                >
+                                                    {userRole === "admin" &&
+                                                    currentUser?.id !== review.user_id
+                                                        ? "ADMIN DELETE"
+                                                        : "DELETE REVIEW"}
+                                                </button>
+
+                                            )}
+
                                         </div>
 
                                     ))
@@ -655,5 +734,5 @@ return (
 
     </div>
 
-);
+    );
 }
