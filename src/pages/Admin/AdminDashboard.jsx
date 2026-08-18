@@ -25,6 +25,7 @@ function AdminDashboard() {
     //load dashboard
     useEffect(() => {
         fetchDashboardData();
+        
     }, []);
 
     //fetch data
